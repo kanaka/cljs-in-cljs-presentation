@@ -402,6 +402,25 @@ DAT.Globe = function(container, colorFn) {
     this._time = t;
   });
 
+  this.__defineGetter__('x', function() {
+    return target.x;
+  });
+  this.__defineSetter__('x', function(x) {
+    target.x = x;
+  });
+  this.__defineGetter__('y', function(y) {
+    return target.y;
+  });
+  this.__defineSetter__('y', function(y) {
+    target.y = y;
+  });
+  this.__defineGetter__('dist', function() {
+    return distanceTarget;
+  });
+  this.__defineSetter__('dist', function(dist) {
+    distanceTarget = dist;
+  });
+
   this.addData = addData;
   this.createPoints = createPoints;
   this.renderer = renderer;
