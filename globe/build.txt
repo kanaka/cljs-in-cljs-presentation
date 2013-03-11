@@ -1,0 +1,5 @@
+Build clojurescript:
+    ../../clojurescript/bin/cljsc joel-60.cljs > joel-60-cljs.js
+
+    COMBINER=cat
+    (echo "var CLOSURE_NO_DEPS=true;"; $COMBINER out/goog/base.js $(awk -F\" '{if ($2 != "base.js") print "out/goog/"$2}' out/goog/deps.js joel-60-cljs.js)) > joel-60-cljs-all.js
