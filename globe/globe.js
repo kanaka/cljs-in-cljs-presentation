@@ -19,7 +19,8 @@ DAT.Globe = function(container, colorFn) {
 
   colorFn = colorFn || function(x) {
     var c = new THREE.Color();
-    c.setHSV( ( 0.6 - ( x * 0.5 ) ), 1.0, 1.0 );
+    //c.setHSV( ( 0.6 - ( x * 0.5 ) ), 1.0, 1.0 );
+    c.setHSV( ( 0.01 - ( x * 0.5 ) ), 1.0, 1.0 );
     return c;
   };
 
@@ -342,7 +343,7 @@ DAT.Globe = function(container, colorFn) {
   function zoom(delta) {
     distanceTarget -= delta;
     distanceTarget = distanceTarget > 1000 ? 1000 : distanceTarget;
-    distanceTarget = distanceTarget < 350 ? 350 : distanceTarget;
+    distanceTarget = distanceTarget < 250 ? 250 : distanceTarget;
   }
 
   function animate() {
