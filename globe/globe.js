@@ -13,6 +13,8 @@
 
 var DAT = DAT || {};
 
+DAT.backgroundImage = "../globe/world.jpg";
+
 DAT.Globe = function(container, colorFn) {
 
   colorFn = colorFn || function(x) {
@@ -71,8 +73,6 @@ DAT.Globe = function(container, colorFn) {
 
   var overRenderer;
 
-  var imgDir = '../globe/';
-
   var curZoomSpeed = 0;
   var zoomSpeed = 50;
 
@@ -107,8 +107,7 @@ DAT.Globe = function(container, colorFn) {
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world' +
-        '.jpg');
+    uniforms['texture'].value = THREE.ImageUtils.loadTexture(DAT.backgroundImage);
 
     material = new THREE.ShaderMaterial({
 
