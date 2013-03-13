@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>HTML5</title>
+	<title>ClojureScript-in-ClojureScript</title>
 
-	<meta name="description" content="HTML5 Presentation">
+	<meta name="description" content="ClojureScript-in-ClojureScript Presentation">
 	<meta name="author" content="Joel Martin @bus_kanaka github@martintribe.org" />
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -14,9 +14,8 @@
 
         <!-- style and animations -->
         <link href="basic-animations.min.css" rel="stylesheet" type="text/css" />
-	<link href="style1.css" rel="stylesheet" type="text/css" />
+        <link href="style1.css" rel="stylesheet" type="text/css" />
 	<link href="style2.css" rel="stylesheet" type="text/css" />
-	<link href="style3.css" rel="stylesheet" type="text/css" />
 	<link href="sticker.css" rel="stylesheet" type="text/css" />
 
 	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
@@ -30,34 +29,22 @@
 
 <div id="simple">
 
-	<div id="home" class="step" data-x="0" data-y="0" data-scale="60">
+    <div id="home" class="step"
+        data-x="0" data-y="0" data-scale="1000">
+
             <div style="width:100%; height: 100%;
-                        text-align: center; margin-top: 200px;">
-            <img height="150" src="imgs/CinC-logo.png">
+                        text-align: center; margin-top: 134px;">
+                <img height="300" src="imgs/CinC-logo.png">
             </div>
+
 	</div>
 
         <!-- *************************************************************** -->
 
-        <!-- Intro Section -->
-        <div id="intro"
-            class="step" data-x="-15000" data-y="-10000" data-scale="20">
-            <h1>Introduction</h1>
-            <div style="width:100%; height: 100%;
-                        text-align: center; margin-top: 60px;">
-            <div class="html5-timeline">
-                <img height="200" src="imgs/CinC-logo.png">
-            </div>
-            <img src="imgs/mac_pc.png">
-            <p>source: xkcd.com</p>
-            </div>
-	</div>
-
-
         <!-- About Me -->
         <div id="about-me"
-            class="step tall-step" data-x="-21000" data-y="-10000" data-scale="4">
-            <div class="html5-logo">
+            class="step slide" data-x="0" data-y="0" data-scale="8" data-rotate="180">
+            <div class="cljs-in-cljs-logo">
                 <div class="sticker">
                     <div class="title">
                         <p class="hello">HELLO</h1>
@@ -71,14 +58,11 @@
 
             <h1>About Me</h1>
 
-            <div style="width: 50%">
-                <p>My name is Joel Martin.</p>
-                <p data-jmpress="fade">
-                I am a Principal Software Engineer at <a target="lonocloud" href="http://lonocloud.com">LonoCloud.com</a>
-                </p>
+            <div data-jmpress="fade" style="width: 50%">
+                <a href="globe/" onclick="javascript:window.open('globe'); return false;" target="60s-window">Joel Martin in 60 seconds</a>
 
                 <div data-jmpress="fade">
-                    <h3>Following Me:</h3>
+                    <h3>Connecting:</h3>
                     <ul>
                         <li><a target="twitter1" href="https://twitter.com/#!/bus_kanaka">@bus_kanaka</a>
                         <li><a target="twitter2" href="https://twitter.com/#!/noVNC">@noVNC</a> (noVNC &amp; HTML5 related)
@@ -90,654 +74,57 @@
             </div>
         </div>
 
-        <!-- (Abbreviated) Technical Background -->
-        <div id="technical-background"
-            class="step tall-step" data-x="-21000" data-y="-6000" data-scale="4">
-            <h1>(Abbreviated) Technical Background</h1>
-            <ul data-jmpress="fade">
-                <li>Contracted to build a <strong>corporate website</strong> (1996)
-                <li>Summer job at <strong>Texas Instruments</strong>: built content management Intranet site (1997)
-            </ul>
-
-            <ul data-jmpress="fade">
-                <li><strong>Started and ran a small business</strong>: hooked up students to the Internet (1998)
-                <li>Built an advanced ticketing, work tracking and task management Intranet site for CS department.
-                <li><strong>Presented at 2000 LISA USENIX conference</strong> on an open source project that we developed for automated management of large computer science network.
-                <li><strong>Compaq</strong>: Tru64 UNIX hardware drivers
-                <li><strong>HP</strong>: clustering and file-system
-                <li><strong>Gentoo Developer</strong>: Developer oriented Linux distribution
-                <li><strong>RedHat</strong>: added Solaris support to the RHN system
-                <li><strong>SiCortex</strong>: some of everything: bootloaders, build system, cross-compilers, hardware drivers, low-level libraries, automated test suite, release engineering, etc
-                <li><strong>SIL International</strong> (non-profit linguistic organization): network engineering, process automation, virtualized remote access infrastructure and software.
-                <li><strong>Sentry Data Systems</strong>: built IaaS (Infrastructure as a Service) platform comparable to Amazon EC2 in functionality but targeting needs of the health-care industry.
-            </ul>
-
-            <ul data-jmpress="fade">
-                <li><strong>noVNC</strong>: open source web application for plugin-free access to console of virtual servers.
-                <li>Participated in the <strong>IETF HyBi working group</strong> developing the first version of the WebSocket protocol.
-                <li><strong>HTML5 specification</strong>: miscellaneous contributions 2D Canvas and WebSockets API.
-                <li><strong>LonoCloud</strong>: developing next generation PaaS (Platform as a Server) using the Clojure language for the core platform.
-            </ul>
-        </div>
-
-        <!-- Edge of HTML5 -->
-        <div id="edge"
-            class="step" data-x="-9000" data-y="-7000" data-scale="4">
-            <h1>The Edge of HTML5</h1>
-
-            <div data-jmpress="fade">
-            <h3>Let's Dive Right In With Some Examples:</h3>
-
-            <p><em>Many of these examples (and examples in this
-                presentation in general) require a bleeding edge
-                browser.  Some will only work in recent versions of
-                Chrome (e.g.  Chrome 17). Most will work in recent
-                versions Firefox </em></p>
-            <ul>
-                <li><a href="http://alteredqualia.com/three/examples/webgl_terrain_dynamic.html" target="possibleex1">Dynamic Terrain Flyover</a>
-                <li><a href="http://madebyevan.com/webgl-water/" target="possibleex2">Water Pool</a>
-                <li><a href="http://html5-demos.appspot.com/static/whats-new-with-html5-media/template/index.html#18" target="possibleex3">Speech input</a> (requires recent release of Chrome)
-                <li><a href="http://syntensity.com/static/espeak.html" target="possibleex3b">Text-To-Speech</a>
-                <li><a href="http://browserquest.mozilla.org/" target="possibleex4">BrowserQuest MMO</a>
-                <li><a href="http://www.htmlfivewow.com/demos/audio-visualizer/index.html" target="possibleex5">Audio Analysis and Visualization</a>
-                <li><a href="http://mozilla.github.com/pdf.js/web/viewer.html" target="possibleex6">pdf.js</a>
-                <li><a href="http://media.tojicode.com/q3bsp/" target="possibleex7">Rendered Quake Level</a>
-
-                <br>
-
-                <li><a href="http://mrdoob.com/projects/chromeexperiments/ball_pool/" target="possibleex8">Ball Pool</a>
-                <li><a href="http://noVNC.com" target="possibleex9">noVNC</a>
-            </ul>
-            </div>
-        </div>
-
-
-
-        <!-- *************************************************************** -->
-
-        <!-- What is HTML5? -->
-        <div id="what-is-html5"
-            class="step" data-x="15000" data-y="-10000" data-scale="20">
-            <h1>What Is HTML5?</h1>
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <div data-jmpress="fade">
-            <p>Unfortunately the definition of <strong>HTML5</strong> is not simple,
-            so a bit of history is required:</p>
-            </div>
-
-	</div>
-
-        <!-- Chronological History-->
-        <div id="history-chronological"
-            class="step" data-x="9500" data-y="-11500" data-scale="6">
-            <h1>A Chronological History</h1>
-        </div>
-
-        <!-- *************************************************************** -->
-
-        <!-- Visual History-->
-        <div id="history-visual"
-            class="step tall-step" data-x="15000" data-y="-10500" data-scale="6"
+        <!-- Intro -->
+        <div id="intro" class="step slide"
+            data-x="-74000" data-y="-36000" data-scale="22" data-rotate="-45"
             style="padding-top: 5px;">
-            <h2>A Visual History
-            <input type="button" value="Show" onclick="load('#evolvex', 'http://evolutionofweb.appspot.com/')">
-            <input type="button" value="Hide" onclick="unload('#evolvex')">
-            </h2>
 
-            <div class="html5-logo">
-            </div>
-
-            <iframe id="evolvex" width="99%" height="93%">
-            </iframe>
-        </div>
-
-        <!-- *************************************************************** -->
-
-        <!-- A Functional History-->
-        <div id="history-functional"
-            class="step" data-x="20500" data-y="-8500" data-scale="6">
-            <h1>A Functional History</h1>
-
-            <div data-jmpress="fade">
-                <strong>The Static Web</strong>
-                <ul>
-                    <li> Static pages
-                    <li> <strong>Backend</strong>: Apache
-                </ul>
-            </div>
-            <div data-jmpress="fade">
-                <strong>The Generated Web</strong>
-                <ul>
-                    <li> Static web pages that are generated/assembled
-                    <li> <strong>Associated ideas</strong>: templating, LAMP stack
-                    <li> <strong>Backend</strong>: Apache+CGI, PHP, Perl, Python
-                </ul>
-            </div>
-            <div data-jmpress="fade">
-                <strong>The Read/Write Web</strong>
-                <ul>
-                    <li> Web sites become views of dynamic backend content
-                    <li> <strong>Associated ideas</strong>: Web 2.0, DHTML, AJAX, MVC,
-                    blogs/RSS, wikis, Semantic Web, Push, social web,
-                    crowd-sourcing (wikipedia).
-                    <li> <strong>Backend</strong>: WSGI, Ruby on Rails, Django
-                </ul>
-            </div>
-            <div data-jmpress="fade">
-                <strong>Web Applications</strong>
-                <ul>
-                    <li> Applications delivered via the web but
-                    pull/push data from many sources (HTTP,
-                    WebSockets, media devices, local storage)
-                    <li> <strong>Associated ideas</strong>: HTML5, mobile, cloud,
-                    'native' app vs webapp.
-                    <li> <strong>Backend (optional)</strong>: Node.js, "cloud", big
-                    data, NoSQL (CouchDB, MongoDB).
-                </ul>
-            </div>
-        </div>
-
-        <!-- *************************************************************** -->
-
-        <!-- So What is HTML5? -->
-        <div id="so-what-is-html5a"
-            class="step" data-x="9000" data-y="-7000" data-scale="5">
-            <h1>So What is "HTML5"?</h1>
-
-            <div class="html5-logo">
+            <div class="cljs-in-cljs-logo">
                 <img height="100" src="imgs/CinC-logo.png">
             </div>
+
+            <h2>Introducing ClojureScript-in-ClojureScript</h2>
 
         </div>
 
+        <!-- Porting Steps -->
+        <div id="porting" class="step slide"
+            data-x="78000" data-y="40000" data-scale="22" data-rotate="135"
+            style="padding-top: 5px;">
 
-        <!-- *************************************************************** -->
-
-        <!-- HTML5 Feature Overview -->
-        <div id="feature-overview"
-            class="step" data-x="-15000" data-y="10000" data-scale="20">
-            <h1>HTML5 Feature/Technology Overview</h1>
-            <div class="html5-logo">
+            <div class="cljs-in-cljs-logo">
                 <img height="100" src="imgs/CinC-logo.png">
             </div>
 
-            <p>
-            Not a comprehensive overview but hopefully a representative one.
-            </p>
-
-	</div>
-
-        <!-- HTML5 Feature Levels -->
-        <div id="feature-levels"
-            class="step tall-step" data-x="-19000" data-y="11000" data-scale="8">
-            <h1>HTML5 Feature Levels</h1>
-
-            I've grouped HTML5 Technologies/Features in 4 levels based
-            on when I expect them to be ready for use.
-            <div data-jmpress="fade">
-                <h2>Level0</h2>
-                <ul>
-                    <li> The past
-                    <li> Pre-HTML5 but foundational
-                </ul>
-            </div>
-            <div data-jmpress="fade">
-                <h2>Level1</h2>
-                <ul>
-                    <li> The present
-                </ul>
-            </div>
-            <div data-jmpress="fade">
-                <h2>Level2</h2>
-                <ul>
-                    <li> The near future
-                </ul>
-            </div>
-            <div data-jmpress="fade">
-                <h2>Level3</h2>
-                <ul>
-                    <li> The farther future
-                </ul>
-            </div>
+            <h2>Porting Steps</h2>
 
         </div>
 
+        <!-- Forms -->
+        <div id="forms" class="step slide"
+            data-x="-128000" data-y="-2000" data-scale="22" data-rotate="-45"
+            style="padding-top: 5px;">
 
-
-
-        <!-- *************************************************************** -->
-
-        <!-- From Here to There -->
-        <div id="here-to-there"
-            class="step" data-x="15000" data-y="10000" data-scale="20">
-            <h1>From Here to There</h1>
-            <div class="html5-logo">
+            <div class="cljs-in-cljs-logo">
                 <img height="100" src="imgs/CinC-logo.png">
             </div>
-	</div>
 
-        <!-- *************************************************************** -->
+            <h2>Form Walkthroughs</h2>
 
-        <!-- Native vs Webapp -->
-        <div id="native-vs-webapp"
-            class="step" data-x="11500" data-y="8000" data-scale="6">
-            <h1>"Native" App vs Web App</h1>
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-            <h3>What's the Difference?</h3>
-	</div>
-
-
-        <div id="native-vs-web2"
-            class="step" data-x="9700" data-y="7600" data-scale="1">
-            <h1>"Native" App vs Web App</h1>
-
-            <h3>Compiled Object Code vs Interpreted Source?</h3>
-            <div data-jmpress="fade">
-            <p>Nope.</p>
-            <p>Python/perl/ruby programs are native but interpreted.</p>
-            <p>Android apps are Dalvik bytecode; somewhere in the middle.</p>
-            <p>Javascript is a 'compile' target for many languages.</p>
-            <p>Google's NaCl projects allows compiled code in web apps</p>
-            </div>
         </div>
 
-        <div id="native-vs-web3"
-            class="step" data-x="10900" data-y="7700" data-scale="1">
-            <h1>"Native" App vs Web App</h1>
+        <!-- finish -->
+        <div id="finish" class="step slide"
+            data-x="128000" data-y="15000" data-scale="22" data-rotate="135"
+            style="padding-top: 5px;">
 
-            <h3>Installed vs Loaded/Browsed On Demand?</h3>
-            <div data-jmpress="fade">
-            <p>Nope.</p>
-            <p>Web Apps can work offline.</p>
-            <p>Some native apps update (parts of) themselves on startup.</p>
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
             </div>
+
+            <h2>Finishing Up</h2>
+
         </div>
-
-        <div id="native-vs-web4"
-            class="step" data-x="12100" data-y="7900" data-scale="1">
-            <h1>"Native" App vs Web App</h1>
-
-            <h3>Load in browser vs Click on Icon?</h3>
-            <div data-jmpress="fade">
-            <p>Still not.</p>
-            <p>Web apps can run standalone or from shortcuts (with no browser UI)</p>
-            <p>Native apps can be launch from web links.</p>
-            </div>
-        </div>
-
-        <div id="native-vs-web5"
-            class="step" data-x="13300" data-y="8300" data-scale="1">
-            <h1>"Native" App vs Web App</h1>
-
-            <h3>Integration with Native APIs?</h3>
-            <div data-jmpress="fade">
-            <p>Closer ... but no.</p>
-            <p>Phonegap/Cordova/AppMobi blur the line.</p>
-            <p>Everyone except Apple is standardizing on web apps as the new "native" (with access to native APIs):</p>
-            <ul>
-                <li><a href="http://msdn.microsoft.com/en-us/library/windows/apps/br211386.aspx">Windows Metro</a>
-                <li><a href="https://developer.palm.com/content/api/dev-guide.html">webOS</a>
-                <li><a href="https://developer.tizen.org/sdk/architecture">Tizen</a>
-                <li><a href="https://bdsc.webapps.blackberry.com/html5/">Blackberry WebWorks</a>
-                <li><a href="http://www.mozilla.org/en-US/b2g/">Mozilla Boot to Gecko</a>
-                <li><a href="https://live.gnome.org/GnomeShell">Gnome Shell</a>
-                <li><a href="Gnome 3">http://blog.ometer.com/2008/08/25/embeddable-languages/</a>
-                <!-- TODO: switch to http://webapps.ubuntu.com/ when it is live -->
-                <li><a href="http://www.pcpro.co.uk/news/375946/canonical-unveils-webapps-for-ubuntu">Ubuntu WebApps</a>
-            </ul>
-            <p>Browser extensions provide expanded native API access:</p>
-            <ul>
-                <li><a href="https://developer.mozilla.org/en/XUL_School">Mozilla XUL</a>
-                <li><a href="http://code.google.com/chrome/extensions/index.html">Chrome Extensions</a>
-            </div>
-        </div>
-
-        <div id="native-vs-web6"
-            class="step" data-x="12100" data-y="8700" data-scale="1">
-            <h1>"Native" App vs Web App</h1>
-
-            <h3>App Marketplace vs Web Download?</h3>
-            <div data-jmpress="fade">
-            <p>Nope.</p>
-            <p>Chrome Web Store is for web apps.</p>
-            <p>Mozilla Marketplace will be generic web app marketplace.</p>
-            <p>PhoneGap/Cordova can package up web apps for Android/Apple app markets</p>
-            </div>
-        </div>
-
-        <div id="native-vs-web7"
-            class="step" data-x="10900" data-y="8900" data-scale="1">
-            <h1>"Native" App vs Web App</h1>
-
-            <h3>Walled Gardens vs Wild Prairies</h3>
-            <div data-jmpress="fade">
-            <p>"Native" means somebody else controls distribution, discovery and monetization.</p>
-            <p>Example: iOS apps are in Apple's walled garden</p>
-            <ul>
-                <li> Pros: high signal to noise, easier to monetize.
-                <li> Cons: Apple takes a cut, beholden to Apple's whims.
-            </ul>
-            <p>Users think of "Native" apps as products. Web apps are more like services (kind-of).</p>
-            <p>Web apps are harder to sell as a product, but easier to monetize via advertising.</p>
-            </div>
-        </div>
-
-        <div id="richness-vs-reach"
-            class="step" data-x="9700" data-y="9000" data-scale="1">
-            <h1>Richness vs Reach</h1>
-
-            <div data-jmpress="fade">
-            <h3>"Native" Apps Have Richness</h3>
-            <p>"Native" apps can maximize the richness of the user experience.</p>
-            <p>Able to take full advantage of the hardware.</p>
-            <p>Hardware and software target platforms are finite, knowable and testable.</p>
-            <p>Least common denominator factor is less of an issue.</p>
-            </div>
-
-            <div data-jmpress="fade">
-            <h3>Web Apps Have Reach</h3>
-            <p>Number of people/platforms that can be reached is maximized</p>
-            <p>Smartphones will always have web browsers, therefore "Native" app reach will always be a subset of web app reach.</p>
-            <p>Limitless variations possible of hardware and browser versions</p>
-            <p>Do you go after "least common denominator" or sacrifice your reach?</p>
-            </div>
-        </div>
-
-
-
-        <!-- *************************************************************** -->
-
-        <!-- Final Thoughts -->
-        <div id="final-thoughts"
-            class="step" data-x="18500" data-y="8000" data-scale="6">
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <h1>Final Thoughts</h1>
-
-	</div>
-
-        <div id="html5-fitness"
-            class="step" data-x="17000" data-y="7500" data-scale="1.5">
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <h1>HTML5 Application Fitness</h1>
-
-            <div data-jmpress="fade">
-            <h3>Good Match</h3>
-            <p>Content and media delivery (HTML5 has become one of the best design platforms)</p>
-            <p>Casual games (non-twitch)</p>
-            <p>Apps with tight social network integration</p>
-            </div>
-
-            <div data-jmpress="fade">
-            <h3>Not Yet A Good Match</h3>
-            <p>Device specific software/utilities: camera, contacts, etc</p>
-            <p>Twitch games</p>
-            <p>Mostly offline apps (soon but not yet)</p>
-            <p>Sophisticated animation/interaction requirements (however the line is moving quickly)</p>
-            </div>
-        </div>
-
-        <div id="progressive-enhancement"
-            class="step" data-x="19000" data-y="7500" data-scale="1.5">
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <h1>Consider Progressive Enhancement</h1>
-
-            <ol>
-                <li data-jmpress="fade"><p>Develop Web App First</p>
-                <li data-jmpress="fade"><p>Use PhoneGap/Cordova or AppMobi to enter "native" marketplaces</p>
-                <li data-jmpress="fade"><p>When you encounter richness barriers, convert sensitive parts to "native" languages, maintain core design/content rendering in a UIWebView (or equivalent)</p>
-                <li data-jmpress="fade"><p>If necessary, convert whole app to the "native" language.</p>
-            </ol>
-        </div>
-
-        <!-- Use the Source -->
-        <div id="use-the-source"
-            class="step" data-x="17000" data-y="9000" data-scale="1.5">
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <h1>Use the Source</h1>
-            <p data-jmpress="fade">
-            The view source menu is responsible for much of the
-            success of the Web. Defacto Open Source<br>
-            </p>
-            <p data-jmpress="fade">
-            Don't reinvent the wheel. There are many thousands of
-            Javascript libraries and frameworks (see <a
-                href="https://github.com/bebraw/jswiki/wiki">jswiki</a>)
-            and most are under permissive license Open Source
-            libraries. Use them!</p>
-            <div data-jmpress="fade">
-            <img src="imgs/source-luke.jpg">
-            </div>
-        </div>
-
-        <!-- Final Thoughts -->
-        <div id="mobile-html5"
-            class="step" data-x="19000" data-y="9000" data-scale="1.5">
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <h1>Thoughts on Mobile HTML5 Apps</h1>
-            <ul>
-                <li data-jmpress="fade"> The Web is improving extremely rapidly.
-                <br>The next 1-2 years will see the gap between web apps and "native" marketplace delivered apps narrow substantially.
-
-                <li data-jmpress="fade"> Adobe has been bitten by the HTML5 bug and is now a major contributor.
-                <br>Look for excellent HTML5 content production and workflow tools to arrive in force.
-
-                <li data-jmpress="fade"> On the other hand, watch out for Apple.
-                <br>Initially a key driver of the Web, they may begin to consider web apps a threat to their marketplace.
-
-                <li data-jmpress="fade"> Android is currently a problem.
-                <br>Even the latest Android version lags in web features.
-                <br>However, Chrome for Android is coming soon. Possibly as default in next major release.
-
-                <li data-jmpress="fade"> In app purchases can be much more lucrative than initial app sale.
-                <br>Consider the case of <a href="http://gamasutra.com/view/news/164922/GDC_2012_How_Valve_made_Team_Fortress_2_freetoplay.php">TF2</a>.
-
-                <li data-jmpress="fade">There are several ways of enabling in-app purchases with web apps.
-                    <ul>
-                        <li> PhoneGap/Cordova have some native in app purchase options.
-                        <li> AppMobi claims to have seamless native in app purchase.
-                        <li> Chrome Web Store has in app purchases.
-                        <li> Mozilla Marketplace has in-app purchase capability.
-                    </ul>
-                <li data-jmpress="fade"> Keep an eye on Boot to Gecko and Chrome OS
-            </ul>
-
-	</div>
-
-
-
-
-        <!-- *************************************************************** -->
-
-        <!-- People/Blogs -->
-        <div id="people-blogs"
-            class="step" data-x="11500" data-y="13000" data-scale="6">
-            <h1>People/Sites/Blogs</h1>
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-	</div>
-
-
-        <!-- HTML5 Related Blogs -->
-        <div id="blogs"
-            class="step" data-x="10000" data-y="13000" data-scale="1.5">
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <h1>HTML5 Blogs</h1>
-
-            <h3>General</h3>
-            <ul>
-                <li> <a href="http://updates.html5rocks.com">HTML5Rocks Blog</a>
-                <li> <a href="http://www.htmlgoodies.com/">HTML Goodies</a> (lots of ads but good content)
-                <li> <a href="http://badassjs.com">Bad Ass Javascript</a>
-                <li> <a href="http://planet-webgl.org/">Planet WebGL</a>
-            </ul>
-
-            <h3>Browser Vendors</h3>
-            <ul>
-                <li> <a href="http://www.webkit.org/blog">Surfin' Safari</a>
-                <li> <a href="http://blog.chromium.org">Chromium</a>
-                <li> <a href="http://chrome.blogspot.com">Chrome blog</a>
-                <li> <a href="http://hacks.mozilla.org/">Mozilla Hacks</a>
-                <li> <a href="http://my.opera.com/ODIN/blog/">Opera Developer News</a>
-                <li> <a href="http://blogs.msdn.com/b/ie/">IEBlog</a>
-            </ul>
-
-            <h3>Standards Organizations</h3>
-            <ul>
-                <li> <a href="http://blog.whatwg.org">WHATWG blog</a>
-                <li> <a href="http://www.w3.org/QA/">W3C blog</a>
-            </ul>
-
-	</div>
-
-        <!-- HTML5 People -->
-        <div id="people"
-            class="step" data-x="11500" data-y="13000" data-scale="1.5">
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <h1>HTML5 People</h1>
-
-            <ul>
-                <li> <a href="http://paulirish.com/">Paul Irish</a>
-                <li> <a href="http://peter.sh">Peter Beverloo</a>
-                <li> <a href="http://addyosmani.com/blog/">Addy Osmani</a>
-                <li> <a href="http://ejohn.org/category/blog/">John Resig</a>
-                <li> <a href="http://ricardocabello.com/blog">Mr. Doob</a>
-                <li> <a href="http://rawkes.com/">Rob Hawkes</a>
-                <li> <a href="http://robertnyman.com/">Robert Nyman</a>
-                <li> <a href="http://annevankesteren.nl/">Anne van Kesteren</a>
-            </ul>
-
-	</div>
-
-        <!-- HTML5 Sites -->
-        <div id="sites"
-            class="step" data-x="13000" data-y="13000" data-scale="1.5">
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <h1>HTML5 Sites</h1>
-
-            <ul>
-                <li> <a href="http://www.alistapart.com/" target="alistapart">A List Apart</a>: For People Who Make Websites
-                <li><a href="http://www.useit.com/" target="nielsen">Jakob Nielsen</a>: Usability guides/reference
-                <li><a href="http://css-tricks.com/" target="css-tricks">CSS-Tricks</a>: A Web Design Community
-                <li><a href="http://stackoverflow.com" target="stackoverflow">StackOverflow</a>: All your questions are belong to us.
-            </ul>
-
-	</div>
-
-
-
-
-        <!-- *************************************************************** -->
-
-        <!-- Resources -->
-        <div id="resources"
-            class="step" data-x="18500" data-y="13000" data-scale="6">
-            <h1>Resources</h1>
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-	</div>
-
-        <!-- Compatibility -->
-        <div id="compatibility"
-            class="step" data-x="17000" data-y="13000" data-scale="1.5">
-            <h1>Compatibility</h1>
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <ul>
-                <li><a href="http://caniuse.com" target="resrefex1">caniuse</a>: HTML5 compatibility tables
-                <li><a href="http://html5please.com/" target="resrefex1a">HTML5 Please</a>: HTML5 features, readiness, recommendations, polyfills
-                <li><a href="http://mobilehtml5.org" target="resrefex2">Mobile HTML5</a>: Mobile HTML5 compatibility tables
-                <li><a href="http://kangax.github.com/es5-compat-table/" target="resrefex3">ES5 Compatibility Tables</a>
-                <li><a href="http://html5test.com/" target="resrefex4">HTML5test</a>: Browser HTML5 Feature Score
-                <li><a href="http://rng.io/" target="resrefex5">ringmark</a>: HTML5 Mobile Feature Scoring (by Facebook)
-                <li><a href="http://www.quirksmode.org/" target="resrefex5a">QuirksMode</a>: Browser differences and workarounds
-                <li><a href="https://sites.google.com/a/chromium.org/dev/developers/web-platform-status" target="chromium-status">: Chromium/Chrome Platform Status</a>
-            </ul>
-
-	</div>
-
-        <!-- Reference -->
-        <div id="reference"
-            class="step" data-x="18500" data-y="13000" data-scale="1.5">
-            <h1>Reference</h1>
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <ul>
-                <li><a href="https://developer.mozilla.org/en-US/" target="resex0">MDN</a>: Mozilla Developer Network (just Google with "mdn " prefix)
-                <li><a href="https://github.com/bebraw/jswiki/wiki" target="resex1">jswiki</a>: Comprehensive catalog of Javascript libraries, frameworks and resources.
-                <li><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills" target="resex3">HTML5 Cross Browser Polyfills</a>: Fairly comprehensive list
-                <li><a href="http://microjs.com/" target="resex4">microjs</a>: Micro-framework index and search
-                <li><a href="https://github.com/bebraw/jswiki/wiki/Game-Engines" target="resex5">Javascript Game Engines</a>
-                <li><a href="http://phonegap.com/tools/" target="resex6">HTML5 Mobile UI Toolkits/Projects</a>
-                <li><a href="https://github.com/bebraw/jswiki/wiki/Beginner%27s-Resources" target="resex7">Javascript Beginner Resources</a>
-                <li><a href="http://html5rocks.com" target="resex8">HTML5Rocks</a>: Tons of documentation and examples
-                <li><a href="http://addyosmani.com/blog/ecmascript-6-resources-for-the-curious-javascripter/" target="es6-res">ECMAScript 6 Resources</a>: Resources for exploring the next version of JavaScript (ES6).
-            </ul>
-
-
-	</div>
-
-        <!-- Learning -->
-        <div id="learning"
-            class="step" data-x="20000" data-y="13000" data-scale="1.5">
-            <h1>Learning</h1>
-            <div class="html5-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <ul>
-                <li><a href="http://www.noupe.com/design/html5-tutorials.html" target="tuts">List of HTML5 Tutorials</a>
-                <li><a href="http://www.html5rocks.com/webappfieldguide/toc/index/index" target="resex9">HTML5Rocks Field Guide to Web Applications</a>
-                <li><a href="http://ejohn.org/apps/learn/" target="resex9a">John Resig's Advanced Javascript</a>
-
-                <li><a href="http://www.alistapart.com/articles/responsive-web-design/" target="resex10">A List Apart: Response Web Design</a>
-                <li><a href="http://addyosmani.com/blog/javascript-style-guides-and-beautifiers/">Javascript Style Guide</a>
-                <li><a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/" target="resex11">Javascript Design Patterns</a>
-                <li><a href="http://bonsaiden.github.com/JavaScript-Garden/" target="resex11a">JavaScript Garden</a>
-                <li><a href="http://wtfjs.com/" target="resex11b">wftjs</a>: Javascript Annoyances
-                <li><a href="http://pagespeed-velocity2011.appspot.com/" target="resex11c">Page Speed</a>: Web Site Acceleration Techniques
-                <li><a href="http://filmaj.ca/presentations/whymca12/index.html#/">PhoneGap Presentation</a>
-                <li> Book: <a href="http://shop.oreilly.com/product/0636920020585.do" target="bookex1">Javascript: the Good Parts</a>
-                <li> Book: <a href="http://shop.oreilly.com/product/0636920022886.do" target="bookex2">jQuery Mobile</a>
-                <li> Book: <a href="http://shop.oreilly.com/product/9780596517748.do" target="bookex3">Building Android Apps with HTML, CSS and Javascript</a>
-            </ul>
-
-	</div>
-
 
 </div>
 
