@@ -1,3 +1,9 @@
 [submodule "jmpress.js"]
 	path = jmpress.js
 	url = git://github.com/jmpressjs/jmpress.js.git
+[submodule "inc-clojure-brush"]
+	path = inc-clojure-brush
+	url = git://github.com/brehaut/inc-clojure-brush.git
+[submodule "tempest"]
+	path = tempest
+	url = https://github.com/mrmekon/tempest-cljs.git
