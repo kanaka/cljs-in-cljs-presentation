@@ -5,3 +5,59 @@
     float: right;
 }
 
+.slide {
+    font-size: 1.3em;
+}
+
+.sticker {
+    font-size: 0.6em;
+}
+
+.slide-content {
+    width: 600px;
+}
+
+
+.selfhost {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px;
+    width: 130px;
+    font-size: 0.8em;
+    margin: 2px 0px 2px 0px;
+}
+
+.labels {
+    padding: 7px;
+    width: 70px;
+}
+
+.selfhost div {
+    margin: 2px;
+    padding: 3px;
+}
+
+.selfhost .input, .program, .runtime {
+    border: 1px solid;
+}
+
+.selfhost .input {
+    background: rgb(255,224,192);
+}
+.selfhost .program {
+    background: rgb(224,255,192);
+}
+.selfhost .runtime {
+    background: rgb(192,224,255);
+}
+.selfhost .java {
+    background: rgb(192,255,255);
+}
+
+.arrow {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 0px 0px 0px;
+    margin: 0px;
+}
+

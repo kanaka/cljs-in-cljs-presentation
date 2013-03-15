@@ -1,0 +1,26 @@
+.clj-code, .clj-code div {
+    margin: 0px;
+}
+
+.syntaxhighlighter {
+    padding: 1px !important;
+    width: 720px !important;
+    margin: 0px !important;
+}
+
+.toolbar {
+    display: none;
+}
+
+.clojure.syntaxhighlighter .meta {
+    opacity: 0.6 !important;
+}
+
+.clojure.syntaxhighlighter .invalid { 
+   color: yellow !important;
+   background: red !important;
+}
+
+.clojure.syntaxhighlighter .quoted {      
+    font-style: italic !important;
+}

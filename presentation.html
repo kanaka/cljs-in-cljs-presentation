@@ -17,6 +17,9 @@
         <link href="style1.css" rel="stylesheet" type="text/css" />
 	<link href="style2.css" rel="stylesheet" type="text/css" />
 	<link href="sticker.css" rel="stylesheet" type="text/css" />
+	<link href="inc-clojure-brush/demo/shCoreDefault.css" rel="stylesheet" type="text/css" />
+	<!--<link href="shCoreRDark.css" rel="stylesheet" type="text/css" /> -->
+	<link href="shClojureMine.css" rel="stylesheet" type="text/css" />
 
 	<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
         <script>
@@ -58,18 +61,17 @@
 
             <h1>About Me</h1>
 
-            <div data-jmpress="fade" style="width: 50%">
+            <div data-jmpress="fade">
                 <a href="globe/" onclick="javascript:window.open('globe'); return false;" target="60s-window">Joel Martin in 60 seconds</a>
-
                 <div data-jmpress="fade">
-                    <h3>Connecting:</h3>
+                    <h3>Links:</h3>
                     <ul>
                         <li><a target="twitter1" href="https://twitter.com/#!/bus_kanaka">@bus_kanaka</a>
                         <li><a target="twitter2" href="https://twitter.com/#!/noVNC">@noVNC</a> (noVNC &amp; HTML5 related)
                         <li><a target="github" href="https://github.com/kanaka">github.com/kanaka</a>
                         <li><a target="blog" href="http://blog.n01se.net/kanaka">blog.n01se.net/kanaka</a>
+                        <li><a href="mailto:cljs@martintribe.org">cljs@martintribe.org</a>
                     </ul>
-                <p>You can also contact me at: cljs@martintribe.org</p>
                 </div>
             </div>
         </div>
@@ -85,7 +87,438 @@
 
             <h2>Introducing ClojureScript-in-ClojureScript</h2>
 
+            <p data-jmpress="fade">
+            A Port of ClojureScript to ClojureScript
+            </p>
+            <p data-jmpress="fade">
+            More specifically: A port of the Clojure parts of the ClojureScript compiler to ClojureScript.
+            </p>
+
         </div>
+
+        <!-- Why? -->
+        <div id="intro" class="step slide"
+            data-x="-77000" data-y="-33000" data-scale="5" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Why?</h2>
+
+            <!-- NOTES: "I think the best explanation is with some examples" -->
+
+            <ul>
+                <li data-jmpress="fade"><a target="clojurescript-net" href="http://clojurescript.net">ClojureScript.net</a>
+                <!-- NOTES:
+                - Let's try something easy:
+                    (+ 1 1)
+
+                - Something a bit more interesting:
+                    (defn frob [x] (apply + 1 (vals (meta x))))
+                    (frob (with-meta [1 2 3] {:a 10 :b 20 :c 30}))
+
+                - Still pretty tame, let's take this up a notch:
+                    ; TODO: add lazy-cat to core.cljs
+                    (defmacro lazy-cat [& colls] `(concat ~@(map #(list `lazy-seq %) colls)))
+                    
+                    ; From here: http://clojurefun.wordpress.com/2012/08/31/side-effects-at-ends-of-sequences/
+                    (defmacro surprise-ending [s f] `(lazy-cat ~s (do ~f nil)))
+
+                    (def things (surprise-ending [1 2 3] (println "SURPRISE!"))) nil  ; *** NOTE *** nil
+                    
+                    - Cljs-in-Cljs doesn't yet have real Vars, so the nil supresses printing of the value of things
+
+                    (take 2 things)
+                    (take 3 things)
+                    (take 4 things)
+                    (take 4 things)
+
+                    - I have to give credit for that little gem to Mike Anderson.
+                -->
+                <li data-jmpress="fade"><a>Debug Web REPL for ClojureScript Projects</a>
+                <li data-jmpress="fade"><a>Scriptany</a>
+                <li data-jmpress="fade"><a>ClojureScript REPL with Node.js (no JVM)</a>
+                <li data-jmpress="fade"><a>ClojureScript shebang scripts (Node.js)</a>
+            </ul>
+        </div>
+
+        <!-- Clojure-in-Clojure -->
+        <div id="clj-in-clj" class="step slide"
+            data-x="-71000" data-y="-39000" data-scale="5" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Clojure-in-Clojure</h2>
+            <!-- What about Clojure-in-Clojure?
+                 NOTES: Good question -->
+        </div>
+
+        <!-- WAT -->
+        <div id="wat" class="step slide"
+            data-x="-71000" data-y="-33000" data-scale="5" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>WAT</h2>
+        </div>
+
+        <!-- WAT get-in & update-in -->
+        <div id="wat-update-in" class="step slide"
+            data-x="-72000" data-y="-32000" data-scale="1" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>get-in & update-in</h2>
+
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (get-in {:k :v} [:k])
+:v
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (update-in {:k :v} [:k] (constantly :x))
+{:k :x}
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (get-in {:k :v} [])
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+{:k :x}
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (update-in {:k :v} [] (constantly {:k :x}))
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+{nil {:k :x}, :k :v}
+            </code>
+            </div>
+            <!-- NOTES: Which leads to the logical next step: -->
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> ((update-in {:k :v} [] (constantly {:k :x})) nil)
+{:k :x}
+            </code>
+            </div>
+
+            <!-- TODO: WAT image -->
+        </div>
+
+        <!-- WAT reader -->
+        <div id="wat-reader" class="step slide"
+            data-x="-71000" data-y="-33000" data-scale="1" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>The Reader: letting the camel in the tent</h2>
+
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (list #_anything-you-want)
+()
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> #_stop
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+; hung until next
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (defn $[x]x)
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+#'user/$
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (#^{#""$}#(@#'$`~%)$)   ; <-- a Perl of Wisdom
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+#&lt;user$$ user$$@359ecd80>
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+; Turn it up to 11: leaning toothpicks
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (#^{#"\\//\\\/\/\/\\//"$}#(@#'$`~%)$)
+#&lt;user$$ user$$@359ecd80>
+            </code>
+            </div>
+
+            <!-- TODO: WAT image -->
+        </div>
+
+        <!-- WAT random -->
+        <div id="wat-random" class="step slide"
+            data-x="-70000" data-y="-34000" data-scale="1" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Schrodinger's Protocols</h2>
+
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+(defrecord R [])
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+(defprotocol Wat (w [x]))
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+(extend-protocol Wat clojure.lang.IObj (w [_] :dead)
+                     clojure.lang.IRecord (w [_] :alive))
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+(println (w (R.)))
+:dead
+            </code>
+            </div>
+            <p data-jmpress="fade">Rinse (the cat) and repeat</p>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+:alive
+:dead
+:dead
+:dead
+:alive
+:alive
+:dead
+            </code>
+            </div>
+
+            <!-- TODO: WAT image -->
+        </div>
+
+        <!-- WAT namespaces -->
+        <div id="wat-namespaces" class="step slide"
+            data-x="-71500" data-y="-31500" data-scale="1" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Muddling through namespaces</h2>
+
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (class *ns*)
+clojure.lang.Namespace
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> @*ns*
+ClassCastException ...
+            </code>
+            </div>
+            <p data-jmpress="fade">Namespaces are not a ref type</a>
+            <p data-jmpress="fade">So they're an immutable value?</a>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (hash *ns*)
+1364844884
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (count (ns-publics *ns*))
+0
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (def foo :bar)
+user=> (count (ns-publics *ns*))
+1
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (hash *ns*)
+1364844884  ; same hash
+            </code>
+            </div>
+
+            <!-- TODO: WAT image -->
+        </div>
+
+        <!-- WAT macros 1 -->
+        <div id="wat-macros1" class="step slide"
+            data-x="-70500" data-y="-32500" data-scale="1" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Rule #1: never talk about macros</h2>
+            <!-- Let's talk about macros -->
+
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (and :one :two :three)
+:three
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (apply and [:one :two :three])
+CompilerException ... Can't take value of a macro ...
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (defmacro baz [x] (* 2 x))
+#'user/baz
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (class #'baz)
+clojure.lang.Var
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (class @#'baz)
+user$baz
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (baz 2)
+4
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (#'baz 2)
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+ArityException Wrong number of args (1) ...
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (@#'baz 2)
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+ArityException Wrong number of args (1) ...
+            </code>
+            </div>
+
+        </div>
+
+        <!-- WAT macros 2 -->
+        <div id="wat-macros2" class="step slide"
+            data-x="-69500" data-y="-33500" data-scale="1" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Rule #2: never talk about macros</h2>
+            <!-- Let's talk about macros -->
+
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (let [foo (defmacro bar [x] (* 2 x))] (foo 1.1))
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+ArityException Wrong number of args (1) ...
+            </code>
+            </div>
+            <p data-jmpress="fade">How about bar?</p>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (let [foo (defmacro bar [x] (* 2 x))] (bar 1.1))
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+2.2  ; these aren't the droids you're looking for
+            </code>
+            </div>
+            <p data-jmpress="fade">Again for good measure</p>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+ArityException Wrong number of args (1) ...
+            </code>
+            </div>
+            <p data-jmpress="fade">WAT</p>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
+            </code>
+            </div>
+            <div class="clj-code" data-jmpress="fade">
+            <code class="brush: clojure; gutter: false;">
+42  ; life, the universe and everything
+            </code>
+            </div>
+
+            <!-- TODO: WAT image -->
+        </div>
+
 
         <!-- Porting Steps -->
         <div id="porting" class="step slide"
@@ -99,6 +532,505 @@
             <h2>Porting Steps</h2>
 
         </div>
+
+        <!-- ClojureScript Compilation Process -->
+        <div id="eval" class="step slide"
+            data-x="71000" data-y="43000" data-scale="4" data-rotate="225"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>ClojureScript Compilation Process</h2>
+
+            <ul>
+                <li data-jmpress="fade">Read
+                <ul data-jmpress="fade">
+                    <li>symbols
+                    <li>literals: characters, maps, lists, vectors, keywords, strings
+                    <li>comments, quote, metadata, syntax quote and unquote
+                    <li data-jmpress="fade">dispatch reader (#...)
+                    <ul>
+                        <li>literals: sets, regex, anonymous functions
+                        <li>discard/ignore, quoted vars
+                    </ul>
+                </ul>
+                <li data-jmpress="fade">Analyze
+                <ul>
+                    <li data-jmpress="fade">specials and macro expansion/parsing
+                    <li data-jmpress="fade">regular form parsing
+                </ul>
+                <li data-jmpress="fade">Compile/emit
+                <ul>
+                    <li data-jmpress="fade">call analyzer to build AST
+                    <li data-jmpress="fade">resolve (compile or copy) dependencies
+                    <ul>
+                        <li>Closure lib, clojure.*, cljs.core, etc
+                    </ul>
+                    <li data-jmpress="fade">traverse AST emitting JavaScript
+                    <li data-jmpress="fade">call Closure Compiler (optimize, merge)
+                </ul>
+                <li data-jmpress="fade"><hr> Eval
+                <ul data-jmpress="fade">
+                    <li>at JavaScript load time
+                </ul>
+            </ul>
+        </div>
+
+
+        <div id="porting1" class="step slide"
+            data-x="84000" data-y="36000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 1. Minimal web REPL</h2>
+
+            <div class="slide-content">
+                Chouser and I spent some intense hacking sessions at
+                Clojure/conj 2012 and got this working.  This demonstrates
+                basic compilation but is missing macro and namespace
+                support. Things like defn, deftype, for, doseq, etc are
+                missing.
+
+                <ul>
+                    <li>Copy src/clj/cljs/{compiler,analyzer}.clj to
+                    src/cljs/cljs/*.cljs
+                    <li>Move macros to separate files and pull in using
+                    :use-macros
+                    <li>Comment out functions using file I/O
+                    <li>Define macroexpand-1 as a no-op
+                    <li>Port CHAR_MAP+clojure.lang.Compiler/munge
+                    <li>Change Java specific string methods to use Javascript
+                    equivalents.
+                    <li>Rewrite emit-constant multimethods as EmitConstant
+                    protoocol (ClojureScript protocol oriented rather than
+                    type oriented).
+                    <li>Static snapshot of the analyzer namespaces atom.
+                    <li>Add a bootstrapping html/javascript file to load the
+                    namespaces snapshot, setup the analyzer environment, and
+                    provide a basic web REPL (based on chouser's old
+                    ClojureScript REPL).
+                </ul>
+            </div>
+        </div>
+
+        <div id="porting2" class="step slide"
+            data-x="82000" data-y="38000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 2. Node.js REPL Support</h2>
+
+            <div class="slide-content">
+                <ul>
+                    <li>Add goog.js file to wrap the Closure library for use
+                    by node.js. The Closure library does not have support for
+                    file-loading via Node.js so this stubs it in for when we
+                    build into multiple files.
+                    <li>Create a node.js launch script (run.js) to load the
+                    namespaces snapshot, setup the analyzer environment, and
+                    provide a basic REPL using Node.js readline module.
+                </ul>
+            </div>
+        </div>
+
+        <div id="porting3" class="step slide"
+            data-x="80000" data-y="40000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 3. Dynamic namespaces data</h2>
+
+            <div class="slide-content">
+                <ul>
+                    <li>After compiling each file, save off the namespaces
+                    data for the file to the end of the emitted file to be
+                    swapped in when the file is loaded.
+                </ul>
+            </div>
+        </div>
+
+        <div id="porting4" class="step slide"
+            data-x="78000" data-y="42000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 4. Complete the reader</h2>
+
+            <div class="slide-content">
+                <ul>
+                    <li>Port the Clojure Java syntax quote/unqoute to
+                    Clojure/ClojureScript. Syntax quote/unquote.  Syntax
+                    quote and unquote is a key components of macros.
+                    <li>Port the Clojure Java anonymous function and
+                    function argument reader.
+                    <li>Activate comment reader
+                </ul>
+            </div>
+        </div>
+
+        <div id="porting5" class="step slide"
+            data-x="76000" data-y="44000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 5. defmacro </h2>
+            <ul>
+                <li>Port defmacro macro from Clojure Clj.
+                <li>This allows runtime definition of new macros but
+                not ahead-of-time definition of macros due to the
+                split between the Clojure vars namespace and the
+                ClojureScript compiled namespaces.
+            </ul>
+        </div>
+
+        <div id="porting6" class="step slide"
+            data-x="74000" data-y="46000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 6. clj-defmacro and core macros</h2>
+
+            <div class="slide-content">
+                <ul>
+                    <li>Add clj-defmacro to core_macros.clj and pull it in using
+                    :use-macros so that it is a Clojure (JVM) side version
+                    of defmacro.
+                    <li>Use clj-defmacro to port macros from Clojure core.clj and
+                    ClojureScript core.cljs
+                    <li>Very little generally has to be done to port the macros,
+                    however, there are some minor things:
+                    <ul>
+                        <li>Syntax quoted symbols must be fully qualified since
+                        the reader at clj-defmacro time does not know how to
+                        resolve the cljs side namespace (yet).
+                        <li>Convert Java exceptions to Javascript exceptions.
+                    </ul>
+                    <li>Port destructure function for use by let, loop, fn
+                    macros.
+                </ul>
+            </div>
+        </div>
+
+        <div id="porting7" class="step slide"
+            data-x="82000" data-y="34000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <div class="slide-content">
+                <h2>Step 7. Types, protocols and first-class symbols</h2>
+
+                <ul>
+                    <li>Instead of symbols as special prefixed strings, define
+                    them as objects that support metadata. The type and
+                    protocol macros depend on passing metadata around
+                    attached to symbols.
+                    <li>Port reify, extend-type, deftype, defrecord, and
+                    defprotocol macros and supporting functions from
+                    CloureScript core.clj. Port extend-protocol from
+                    Clojure core.clj.
+                    <li>Port defmulti and defmethod macros
+                </ul>
+            </div>
+        </div>
+
+        <div id="porting8" class="step slide"
+            data-x="80000" data-y="36000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 8. Namespaces as a value </h2>
+
+            <div class="slide-content">
+                Refactor namespace handling to use normal Clojure datastructures.
+
+                <ul>
+                    <li>Replace *ns* uses with *ns-sym*. In normal Clojure,
+                    namespaces (including *ns*) and vars are mutable Java
+                    objects. Lookup namespace and vars as needed based on
+                    a namespace name or symbol rather than from a magic
+                    "variable".
+                    <li>Move namespace handling functions from analyzer.cljs to
+                    core.cljs.
+                </ul>
+            </div>
+        </div>
+
+        <div id="porting9" class="step slide"
+            data-x="78000" data-y="38000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 9. File I/O Support </h2>
+
+            <ul>
+                <li>Implement Java-like File object.
+                <li>Implement Java-like I/O readers/streams (maybe).
+                <li>Move push-back-readerfrom reader.cljs to core.cljs
+                <li>Use node.js file read/write. Use XMLHttpRequest for web
+                file read.
+            </ul>
+        </div>
+
+        <div id="porting10" class="step slide"
+            data-x="76000" data-y="40000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 10. Miscellaneous </h2>
+
+            <div class="slide-content">
+                <ul>
+                    <li>Port closure.clj
+                    <li>Tests
+                    <li>Bug fixes
+                    <li>REPL functionality/cleanup
+                    <li>Line numbering pushbackreader
+                    <li>Output "streams" (*out*, *err*, *rtn*)
+                    <ul>
+                        <li>Rendering functions rather than file streams
+                        <li>*rtn* for rendering of return value
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+        <div id="porting11" class="step slide"
+            data-x="74000" data-y="42000" data-scale="3" data-rotate="135"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Step 11. Self-hosting (in-progress)</h2>
+
+            <div data-jmpress="fade">
+            Standard ClojureScript
+
+            <div>
+                <div class="selfhost labels">
+                    <div>
+                        Input
+                    </div>
+                    <div>
+                        Program
+                    </div>
+                    <div>
+                        Runtime
+                    </div>
+                </div>
+
+                <div class="selfhost">
+                    <div class="input" data-jmpress="fade">
+                        Program.cljs
+                    </div>
+                    <div class="program">
+                        ClojureScript.clj
+                    </div>
+                    <div class="runtime java">
+                        JVM
+                    </div>
+                </div>
+
+                <div class="arrow" id="sh1" data-jmpress="fade">
+                    <img height=40 src="imgs/arrow.png">
+                </div>
+
+                <div class="selfhost" data-jmpress="fade after 10ms #sh1">
+                    <div class="input">
+                        ---
+                    </div>
+                    <div class="program">
+                        program.js
+                    </div>
+                    <div class="runtime">
+                        Node.js/Browser
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <br>
+
+            <div  data-jmpress="fade">
+            ClojureScript-in-ClojureScript
+
+            <div>
+                <div class="selfhost labels">
+                    <div>
+                        Input
+                    </div>
+                    <div>
+                        Program
+                    </div>
+                    <div>
+                        Runtime
+                    </div>
+                </div>
+
+                <div class="selfhost">
+                    <div class="input" data-jmpress="fade">
+                        ClojureScript.cljs
+                    </div>
+                    <div class="program">
+                        ClojureScript.clj
+                    </div>
+                    <div class="runtime java">
+                        JVM
+                    </div>
+                </div>
+
+                <div class="arrow" id="sh2" data-jmpress="fade">
+                    <img height=40 src="imgs/arrow.png">
+                </div>
+
+
+                <div class="selfhost" data-jmpress="fade after 10ms #sh2">
+                    <div class="input" data-jmpress="fade">
+                        Program.cljs
+                    </div>
+                    <div class="program">
+                        ClojureScript.js
+                    </div>
+                    <div class="runtime">
+                        Node.js/Browser
+                    </div>
+                </div>
+
+                <div class="arrow" id="sh3" data-jmpress="fade">
+                    <img height=40 src="imgs/arrow.png">
+                </div>
+
+                <div class="selfhost" data-jmpress="fade after 10ms #sh3">
+                    <div class="input">
+                        ---
+                    </div>
+                    <div class="program">
+                        program.js
+                    </div>
+                    <div class="runtime">
+                        Node.js/Browser
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <br>
+
+            <div data-jmpress="fade">
+            Self-hosted ClojureScript-in-ClojureScript
+
+            <div>
+                <div class="selfhost labels">
+                    <div>
+                        Input
+                    </div>
+                    <div>
+                        Program
+                    </div>
+                    <div>
+                        Runtime
+                    </div>
+                </div>
+
+                <div class="selfhost">
+                    <div class="input" data-jmpress="fade">
+                        ClojureScript.cljs
+                    </div>
+                    <div class="program">
+                        ClojureScript.clj
+                    </div>
+                    <div class="runtime java">
+                        JVM
+                    </div>
+                </div>
+
+                <div class="arrow" id="sh4" data-jmpress="fade">
+                    <img height=40 src="imgs/arrow.png">
+                </div>
+
+
+                <div class="selfhost" data-jmpress="fade after 10ms #sh4">
+                    <div class="input" data-jmpress="fade">
+                        ClojureScript.cljs
+                    </div>
+                    <div class="program">
+                        ClojureScript.js
+                    </div>
+                    <div class="runtime">
+                        Node.js/Browser
+                    </div>
+                </div>
+
+                <div class="arrow" id="sh5" data-jmpress="fade">
+                    <img height=40 src="imgs/arrow.png">
+                </div>
+
+                <div class="selfhost" data-jmpress="fade after 10ms #sh5">
+                    <div class="input" data-jmpress="fade">
+                        Program.cljs
+                    </div>
+                    <div class="program">
+                        ClojureScript.js
+                    </div>
+                    <div class="runtime">
+                        Node.js/Browser
+                    </div>
+                </div>
+
+                <div class="arrow" id="sh6" data-jmpress="fade">
+                    <img height=40 src="imgs/arrow.png">
+                </div>
+
+                <div class="selfhost" data-jmpress="fade after 10ms #sh6">
+                    <div class="input">
+                        ---
+                    </div>
+                    <div class="program">
+                        program.js
+                    </div>
+                    <div class="runtime">
+                        Node.js/Browser
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+
 
         <!-- Forms -->
         <div id="forms" class="step slide"
@@ -157,6 +1089,11 @@ function unload(target) {
 }
 
 </script>
-
+<script type="text/javascript" src="inc-clojure-brush/demo/shCore.js"></script>
+<script type="text/javascript" src="inc-clojure-brush/shBrushClojure.js"></script>
+<script>
+    SyntaxHighlighter.config.tagName = "code";
+    SyntaxHighlighter.all();
+</script>
 </body>
 </html>
