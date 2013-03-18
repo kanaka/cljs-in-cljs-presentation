@@ -1,0 +1,41 @@
+diff --git a/tempest/tempest.cljs b/tempest/tempest.cljs
+index b107aa2..99d2e25 100644
+--- a/tempest/tempest.cljs
++++ b/tempest/tempest.cljs
+@@ -79,6 +79,7 @@ Publicly exported functions to embed Tempest game in HTML.
+         bgcanvas (dom/getElement "canv-bg")
+         bgcontext (.getContext bgcanvas "2d")
+         handler (goog.events.KeyHandler. document true)
++        ;handler (goog.events.KeyHandler. canvas true)
+         dims {:width (.-width canvas) :height (.-height canvas)}]
+ 
+     (events/listen handler "key" (fn [e] (c/queue-keypress e)))
+diff --git a/tempest/tempest/core.cljs b/tempest/tempest/core.cljs
+index 70899c4..e40115c 100644
+--- a/tempest/tempest/core.cljs
++++ b/tempest/tempest/core.cljs
+@@ -1011,8 +1011,8 @@ flipper appears to flip 'inside' the level:
+   [event]
+   (let [key (.-keyCode event)]
+     (swap! *key-event-queue* #(concat % [key]))
+-    (.preventDefault event)
+-    (.stopPropagation event)))
++    #_(.preventDefault event)
++    #_(.stopPropagation event)))
+ 
+ (defn dequeue-keypresses-while-paused
+   "See dequeue-keypresses for details.  This unqueues all keypresses, but only
+@@ -1314,10 +1314,13 @@ The setTimeout fail-over is hard-coded to attempt 30fps.
+   (let [{enemy-list :enemy-list} game-state]
+     (assoc game-state :enemy-list (update-entity-list-directions enemy-list))))
+ 
++(def saved-game-state (atom nil))
++
+ (defn schedule-next-frame
+   "Tells the player's browser to schedule the next frame to be drawn, using
+    whatever the best mechanism the browser has to do so."
+   [game-state]
++  (reset! saved-game-state game-state)
+   ((:anim-fn game-state) #(next-game-state game-state)))
+ 
+ (defn update-frame-count
