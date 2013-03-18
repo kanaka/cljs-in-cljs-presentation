@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="repl-out/goog/base.js"></script>
+  <script src="repl-out/repl.js"></script>
+  <script>
+      goog.require("cljs.repl");
+  </script>
+  <script type="text/javascript" src="scriptany.js"></script>
+  <script>
+      cljs.repl.init();
+      scriptany.register("text/clojurescript", function (text)  {
+          var ret = cljs.repl.read_eval_print(text);
+          console.log("RTN:", ret);
+      });
+  </script>
+
+</head>
+<body>
+
+    <div id="hello">Hello World!</div>
+
+</body>
+</html>

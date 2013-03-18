@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="repl-out/goog/base.js"></script>
+  <script src="repl-out/repl.js"></script>
+  <script>
+      goog.require("cljs.repl");
+  </script>
+  <script type="text/javascript" src="scriptany.js"></script>
+  <script>
+      cljs.repl.init();
+      scriptany.register("text/clojurescript", function (text)  {
+          var ret = cljs.repl.read_eval_print(text);
+          console.log("RTN:", ret);
+      });
+  </script>
+
+  <script type="text/clojurescript">
+      (defn foo [x] (* 2 x))
+      (println "this is raw cljs code")
+      (+ 1 2)
+  </script>
+  <script>
+      scriptany.barrier(); // Needed for WebKit
+      console.log("cljs.user.foo(7):", cljs.user.foo(7));
+  </script>
+  <script type="text/clojurescript" src="bar.cljs"></script>
+  <script>
+      scriptany.barrier(); // Needed for WebKit
+      console.log("cljs.user.bar(7):", cljs.user.bar(7));
+  </script>
+
+</head>
+<body>
+
+    <div id="hello">Hello World!</div>
+
+</body>
+</html>
