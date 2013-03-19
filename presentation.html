@@ -61,18 +61,23 @@
 
             <h1>About Me</h1>
 
+            <a href="globe/" onclick="javascript:window.open('globe'); return false;" target="60s-window">Joel Martin in 60 seconds</a>
+
+            <p data-jmpress="fade">Principal Software Engineer at LonoCloud</p>
+            <p data-jmpress="fade">Probably best know for creating <a href="https://github.com/kanaka/noVNC">noVNC</a> and <a href="https://github.com/kanaka/websockify">websockify</a>
+
+            <!-- TODO: At LonoCloud logo -->
+
             <div data-jmpress="fade">
-                <a href="globe/" onclick="javascript:window.open('globe'); return false;" target="60s-window">Joel Martin in 60 seconds</a>
-                <div data-jmpress="fade">
-                    <h3>Links:</h3>
-                    <ul>
-                        <li><a target="twitter1" href="https://twitter.com/#!/bus_kanaka">@bus_kanaka</a>
-                        <li><a target="twitter2" href="https://twitter.com/#!/noVNC">@noVNC</a> (noVNC &amp; HTML5 related)
-                        <li><a target="github" href="https://github.com/kanaka">github.com/kanaka</a>
-                        <li><a target="blog" href="http://blog.n01se.net/kanaka">blog.n01se.net/kanaka</a>
-                        <li><a href="mailto:cljs@martintribe.org">cljs@martintribe.org</a>
-                    </ul>
-                </div>
+                <h3>Links:</h3>
+                <ul>
+                    <li><a target="twitter1" href="https://twitter.com/#!/bus_kanaka">@bus_kanaka</a>
+                    <li><a target="twitter2" href="https://twitter.com/#!/noVNC">@noVNC</a> (noVNC &amp; HTML5 related)
+                    <li>#cljs-in-cljs (freenode)
+                    <li><a target="github" href="https://github.com/kanaka">github.com/kanaka</a>
+                    <li><a target="blog" href="http://blog.n01se.net/kanaka">blog.n01se.net/kanaka</a>
+                    <li><a href="mailto:cljs@martintribe.org">cljs@martintribe.org</a>
+                </ul>
             </div>
         </div>
 
@@ -94,10 +99,12 @@
             More specifically: A port of the Clojure parts of the ClojureScript compiler to ClojureScript.
             </p>
 
+            <a data-jmpress="fade" href="https://github.com/kanaka/clojurescript">https://github.com/kanaka/clojurescript</a>
+
         </div>
 
         <!-- Why? -->
-        <div id="intro" class="step slide"
+        <div id="why" class="step slide"
             data-x="-77000" data-y="-33000" data-scale="5" data-rotate="-45"
             style="padding-top: 5px;">
 
@@ -109,8 +116,16 @@
 
             <!-- NOTES: "I think the best explanation is with some examples" -->
 
+            <p data-jmpress="fade">Best reason I can a give is to show
+            examples of what is possible</p>
+            
             <ul>
-                <li data-jmpress="fade"><a target="clojurescript-net" href="http://clojurescript.net">ClojureScript.net</a>
+                <!--
+                TODO: switch back to clojurescript.net
+                <li data-jmpress="fade">Online web REPL: <a target="clojurescript-net" href="http://clojurescript.net">ClojureScript.net</a>
+                -->
+                <li data-jmpress="fade">Online web REPL: <a target="clojurescript-net" href="http://localhost:7080/web/repl3.html">ClojureScript.net</a>
+
                 <!-- NOTES:
                 - Let's try something easy:
                     (+ 1 1)
@@ -120,7 +135,6 @@
                     (frob (with-meta [1 2 3] {:a 10 :b 20 :c 30}))
 
                 - Still pretty tame, let's take this up a notch:
-                    ; TODO: add lazy-cat to core.cljs
                     (defmacro lazy-cat [& colls] `(concat ~@(map #(list `lazy-seq %) colls)))
                     
                     ; From here: http://clojurefun.wordpress.com/2012/08/31/side-effects-at-ends-of-sequences/
@@ -137,10 +151,20 @@
 
                     - I have to give credit for that little gem to Mike Anderson.
                 -->
-                <li data-jmpress="fade"><a>Debug Web REPL for ClojureScript Projects</a>
-                <li data-jmpress="fade"><a>Scriptany</a>
-                <li data-jmpress="fade"><a>ClojureScript REPL with Node.js (no JVM)</a>
-                <li data-jmpress="fade"><a>ClojureScript shebang scripts (Node.js)</a>
+                <li data-jmpress="fade">Debug Web REPL for ClojureScript Projects: <a target="gol-example" href="game-of-life.html">ClojureScript Game of Life</a>
+
+                <li data-jmpress="fade">HTML Script tags with ClojureScript: <a target="scriptany-example" href="scriptany-cljs1.html">Scriptany Example</a>
+
+                <li data-jmpress="fade">ClojureScript REPL with Node.js
+                <ul data-jmpress="fade">
+                    <li><code>./run.js repl-out/noderepl.js</code>
+                </ul>
+
+                <li data-jmpress="fade">ClojureScript shebang scripts (Node.js)
+                <ul data-jmpress="fade">
+                    <li><code>time ./shebang.cljs</code>
+                    <li><code>time ./shebang.clj</code>
+                </ul>
             </ul>
         </div>
 
@@ -156,6 +180,8 @@
             <h2>Clojure-in-Clojure</h2>
             <!-- What about Clojure-in-Clojure?
                  NOTES: Good question -->
+
+            <!-- TODO: flesh out or drop -->
         </div>
 
         <!-- WAT -->
@@ -169,19 +195,64 @@
 
             <h2>WAT</h2>
 
-            <p class="slide-content" data-jmpress="fade">Joel's Law of
-            Languages: The amount of WAT in a language is proportional
-            to the influence of its community's pragmatists.</p>
+            <!-- TODO: complete this -->
 
-            <!-- TODO: check spelling -->
-            <p class="slide-content" data-jmpress="fade">Corellary:
-            The closer a language is to perfection, the less useful it is
-            outside of academia</p>
+            <p data-jmpress="fade">Aspects of a language that make you go</p>
+            <p data-jmpress="fade">WAT!</p>
+
+            <!-- TODO: add WAT image -->
+
+            <p class="slide-content" data-jmpress="fade">Gary
+            Bernhardt coined the term as part of an awesome lighting
+            talk on WAT in ruby and JavaScript. You owe it to Check it
+            out if you haven't already</p>
+
+            <p class="slide-content" data-jmpress="fade">But wait,
+            this is a talk about ClojureScript-in-ClojureScript ...</p>
+
         </div>
+
+        <!-- WAT explain -->
+        <div id="wat-explain" class="step slide"
+            data-x="-70200" data-y="-34500" data-scale="0.5" data-rotate="45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Why WAT?</h2>
+
+            <p class="slide-content" data-jmpress="fade">WAT shows
+            where the bodies are burried: things done just to make it
+            work (or to make it fast)</p>
+            <p class="slide-content" data-jmpress="fade">WAT often
+            reveals gaps and conflicts of the conceptual domains in
+            a language</p>
+            <p class="slide-content" data-jmpress="fade">Those strange
+            language details revealed by WAT, usually reflect the
+            areas that are difficult to port.</p>
+            <p class="slide-content" data-jmpress="fade">Lest you
+            think WAT can be completely avoided, let me propose the
+            following:</p>
+            <ul>
+                <li class="slide-content" data-jmpress="fade">Joel's Law of
+                Languages: The amount of WAT in a language is proportional
+                to the influence of its community's pragmatists.
+
+                <!-- TODO: check spelling -->
+                <li class="slide-content" data-jmpress="fade">Corellary:
+                The closer a language is to perfection, the less useful it is
+                outside of academia.
+            </ul>
+            <p class="slide-content" data-jmpress="fade">So, let's
+            take a quick trip into Clojure WAT.</p>
+        </div>
+
 
         <!-- WAT classic -->
         <div id="wat-classic" class="step slide"
-            data-x="-72000" data-y="-32000" data-scale="1" data-rotate="-45"
+            data-x="-71750" data-y="-31750" data-scale="1" data-rotate="-45"
             style="padding-top: 5px;">
 
             <div class="cljs-in-cljs-logo">
@@ -244,7 +315,7 @@ false  ; WAT
 
         <!-- WAT update-in -->
         <div id="wat-update-in" class="step slide"
-            data-x="-71300" data-y="-32700" data-scale="1" data-rotate="-45"
+            data-x="-71050" data-y="-32450" data-scale="1" data-rotate="-45"
             style="padding-top: 5px;">
 
             <div class="cljs-in-cljs-logo">
@@ -300,14 +371,14 @@ user=> ((update-in {:k :v} [] (constantly {:k :x})) nil)
 
         <!-- WAT reader -->
         <div id="wat-reader" class="step slide"
-            data-x="-70600" data-y="-33400" data-scale="1" data-rotate="-45"
+            data-x="-70350" data-y="-33150" data-scale="1" data-rotate="-45"
             style="padding-top: 5px;">
 
             <div class="cljs-in-cljs-logo">
                 <img height="100" src="imgs/CinC-logo.png">
             </div>
 
-            <h2>Reader: the camel in the room</h2>
+            <h2>Reading some WAT</h2>
 
             <div class="clj-code" data-jmpress="fade">
             <code class="brush: clojure; gutter: false;">
@@ -360,14 +431,14 @@ user=> (#^{#",/\/P"$}#(@#'$`~%)$)
 
         <!-- WAT random -->
         <div id="wat-random" class="step slide"
-            data-x="-69900" data-y="-34100" data-scale="1" data-rotate="-45"
+            data-x="-69650" data-y="-33850" data-scale="1" data-rotate="-45"
             style="padding-top: 5px;">
 
             <div class="cljs-in-cljs-logo">
                 <img height="100" src="imgs/CinC-logo.png">
             </div>
 
-            <h2>Schrodinger's Protocols</h2>
+            <h2>Schrodinger's WAT</h2>
 
             <div class="clj-code">
             <code class="brush: clojure; gutter: false;">
@@ -407,7 +478,7 @@ user=> (#^{#",/\/P"$}#(@#'$`~%)$)
 
         <!-- WAT namespaces -->
         <div id="wat-namespaces" class="step slide"
-            data-x="-71500" data-y="-31500" data-scale="1" data-rotate="-45"
+            data-x="-71250" data-y="-31250" data-scale="1" data-rotate="-45"
             style="padding-top: 5px;">
 
             <div class="cljs-in-cljs-logo">
@@ -467,7 +538,7 @@ user=> (hash *ns*)
 
         <!-- WAT macros 1 -->
         <div id="wat-macros1" class="step slide"
-            data-x="-70800" data-y="-32200" data-scale="1" data-rotate="-45"
+            data-x="-70550" data-y="-31950" data-scale="1" data-rotate="-45"
             style="padding-top: 5px;">
 
             <div class="cljs-in-cljs-logo">
@@ -542,7 +613,7 @@ ArityException Wrong number of args (1) ...
 
         <!-- WAT macros 2 -->
         <div id="wat-macros2" class="step slide"
-            data-x="-70100" data-y="-32900" data-scale="1" data-rotate="-45"
+            data-x="-69850" data-y="-32650" data-scale="1" data-rotate="-45"
             style="padding-top: 5px;">
 
             <div class="cljs-in-cljs-logo">
@@ -600,31 +671,6 @@ user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
             <!-- more WAT! -->
 
             <!-- TODO: WAT image -->
-        </div>
-
-        <!-- WAT explain -->
-        <div id="wat-explain" class="step slide"
-            data-x="-69400" data-y="-33600" data-scale="1" data-rotate="-45"
-            style="padding-top: 5px;">
-
-            <div class="cljs-in-cljs-logo">
-                <img height="100" src="imgs/CinC-logo.png">
-            </div>
-
-            <h2>Why the WAT?</h2>
-
-            <p class="slide-content" data-jmpress="fade">WAT shows
-            where the bodies are burried: things done just to make it
-            work (or to make it fast)</p>
-            <p class="slide-content" data-jmpress="fade">WAT often
-            reveals gaps and conflicts of the conceptual domains in
-            a language</p>
-            <p class="slide-content" data-jmpress="fade">Those strange
-            language details revealed by WAT, usually reflect the
-            areas that are difficult to port.</p>
-            <p class="slide-content" data-jmpress="fade">So, let's
-            switch gears and talk about the process of porting
-            ClojureScript to ClojureScript.</p>
         </div>
 
 
@@ -1034,7 +1080,7 @@ user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
             <div data-jmpress="fade">
             Standard ClojureScript
 
-            <div>
+            <div class="selfbox1">
                 <div class="selfhost labels">
                     <div>
                         Input
@@ -1077,12 +1123,12 @@ user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
             </div>
             </div>
 
-            <br>
+            <!-- bin/cljsc hello.cljs &gt; hello.js -->
 
             <div  data-jmpress="fade">
             ClojureScript-in-ClojureScript
 
-            <div>
+            <div class="selfbox1">
                 <div class="selfhost labels">
                     <div>
                         Input
@@ -1142,12 +1188,16 @@ user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
             </div>
             </div>
 
-            <br>
+            <!--
+bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
+./run.js cljsc.js hello.cljs &gt; hello.js -->
 
             <div data-jmpress="fade">
             Self-hosted ClojureScript-in-ClojureScript
 
-            <div>
+            <!-- NOTES: this is still in progress -->
+
+            <div class="selfbox2">
                 <div class="selfhost labels">
                     <div>
                         Input

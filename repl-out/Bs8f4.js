@@ -24,14 +24,9 @@ return process.stderr.write(p1__3205_SHARP_);
 cljs.core._STAR_print_fn_STAR_ = (function (p1__3206_SHARP_){
 return cljs.core._STAR_out_STAR_.call(null,p1__3206_SHARP_);
 });
-cljs.core.println.call(null,";; ClojureScript");
+cljs.core.println.call(null,";; ClojureScript-in-ClojureScript");
 cljs.core.println.call(null,";;   - http://github.com/kanaka/clojurescript");
 cljs.core.println.call(null,";;   - A port of the ClojureScript compiler to ClojureScript");
-noderepl.pep.call(null,"(+ 1 2)");
-noderepl.pep.call(null,"(defn sqr [x] (* x x))");
-noderepl.pep.call(null,"(sqr 8)");
-noderepl.pep.call(null,"(defmacro unless [pred a b] `(if (not ~pred) ~a ~b))");
-noderepl.pep.call(null,"(unless false :yep :nope)");
 var readline = require("readline");
 var rl = readline.createInterface(process.stdin,process.stdout);
 rl.setPrompt(cljs.repl.prompt.call(null));

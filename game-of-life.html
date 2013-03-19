@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link href="jquery-ui-1.8.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="jquery-ui-1.7.min.js"></script>
+        <script type="text/javascript" src="jqconsole.min.js"></script>
+
+        <link href="game-of-life/resources/public/styles/default.css" rel="stylesheet" type="text/css" />
+        <link href="game-of-life-debug.css" rel="stylesheet" type="text/css" />
+        <script src="gol-out/goog/base.js"></script>
+        <script src="gol-out/game-of-life-debug.js"></script>
+        <script>
+            goog.require("game_of_life_debug");
+        </script>
+    </head>
+    <body>
+        <div id="game-of-life-content">
+        </div>
+
+        <div id="console"></div>
+
+        <div style="position: absolute; bottom: 5px; left: 5px;" >
+            Cheats:
+            <br>
+            ldnclj_dojo_team_5_game_of_life.model/*grid*
+            <br>
+            (vec (repeatedly 1200 #(rand-nth [nil nil :alive])))
+        </div>
+
+        <a href="" style="position: absolute; bottom: 5px; right: 5px;" onclick="game_of_life_debug.init(); return false;">
+            DEBUG
+        </a>
+    </body>
+</html>
+

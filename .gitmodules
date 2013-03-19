@@ -4,6 +4,6 @@
 [submodule "inc-clojure-brush"]
 	path = inc-clojure-brush
 	url = git://github.com/brehaut/inc-clojure-brush.git
-[submodule "tempest"]
-	path = tempest
-	url = https://github.com/mrmekon/tempest-cljs.git
+[submodule "game-of-life"]
+	path = game-of-life
+	url = https://github.com/sw1nn/ldnclj-dojo-team-5-game-of-life.git
