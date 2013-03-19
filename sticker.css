@@ -1,6 +1,6 @@
 .sticker {
     width: 20em;
-    height: 12em;
+    height: 16em;
     margin: 3em;
 
     background: #e00000;
@@ -33,7 +33,7 @@
 }
 .sticker .text {
     background: #fff;    
-    height: 5.5em;
+    height: 9.5em;
     padding-top: 2%;
     font-family: "Schoolbell", "Comic Sans MS", cursive;
     text-align: center;
