@@ -61,10 +61,13 @@
 
             <h1>About Me</h1>
 
+            <!-- TODO: somewhere else -->
+            <!--
             <a href="globe/" onclick="javascript:window.open('globe'); return false;" target="60s-window">Joel Martin in 60 seconds</a>
+            -->
 
             <p data-jmpress="fade">Principal Software Engineer at LonoCloud</p>
-            <p data-jmpress="fade">Probably best know for creating <a href="https://github.com/kanaka/noVNC">noVNC</a> and <a href="https://github.com/kanaka/websockify">websockify</a>
+            <p data-jmpress="fade">Probably best known for creating <a href="https://github.com/kanaka/noVNC">noVNC</a> and <a href="https://github.com/kanaka/websockify">websockify</a>
 
             <!-- TODO: At LonoCloud logo -->
 
@@ -73,7 +76,6 @@
                 <ul>
                     <li><a target="twitter1" href="https://twitter.com/#!/bus_kanaka">@bus_kanaka</a>
                     <li><a target="twitter2" href="https://twitter.com/#!/noVNC">@noVNC</a> (noVNC &amp; HTML5 related)
-                    <li>#cljs-in-cljs (freenode)
                     <li><a target="github" href="https://github.com/kanaka">github.com/kanaka</a>
                     <li><a target="blog" href="http://blog.n01se.net/kanaka">blog.n01se.net/kanaka</a>
                     <li><a href="mailto:cljs@martintribe.org">cljs@martintribe.org</a>
@@ -114,8 +116,6 @@
 
             <h2>Why?</h2>
 
-            <!-- NOTES: "I think the best explanation is with some examples" -->
-
             <p data-jmpress="fade">Best reason I can a give is to show
             examples of what is possible</p>
             
@@ -155,7 +155,7 @@
 
                 <li data-jmpress="fade">HTML Script tags with ClojureScript: <a target="scriptany-example" href="scriptany-cljs1.html">Scriptany Example</a>
 
-                <li data-jmpress="fade">ClojureScript REPL with Node.js
+                <li data-jmpress="fade">ClojureScript REPL (Node.js)
                 <ul data-jmpress="fade">
                     <li><code>./run.js repl-out/noderepl.js</code>
                 </ul>
@@ -164,6 +164,15 @@
                 <ul data-jmpress="fade">
                     <li><code>time ./shebang.cljs</code>
                     <li><code>time ./shebang.clj</code>
+                </ul>
+
+                <li data-jmpress="fade">ClojureScript-in-ClojureScript compiler (Node.js)
+                <ul data-jmpress="fade">
+                    <li><code>mkdir -p out2/cljs</code>
+                    <li><code>cp out/goog.js out2/</code>
+                    <li><code>cp out/cljs/core.cljs # Hack alert</code>
+                    <li><code>./run.js out/cljsc.js hello.cljs &gt; hello.js</code>
+                    <li><code>./run2.js hello.cljs</code>
                 </ul>
             </ul>
         </div>
@@ -181,7 +190,21 @@
             <!-- What about Clojure-in-Clojure?
                  NOTES: Good question -->
 
-            <!-- TODO: flesh out or drop -->
+            <!-- TODO: validate correctness -->
+            <ul>
+                <li data-jmpress="fade">The dream of Clojure-in-Clojure is
+                a Clojure implementation that is written entirely in
+                Clojure except for a very small platform specific
+                core.
+                <li data-jmpress="fade">It would allow easy porting to
+                new platforms (among other advantages).
+                <li data-jmpress="fade">ClojureScript itself is a step
+                towards this goal; more of the compiler is implemented in
+                Clojure.
+                <li data-jmpress="fade">ClojureScript-in-ClojureScript is
+                another step towards that goal; more of the compiler is
+                implemented in Clojure/ClojureScript.
+            </ul>
         </div>
 
         <!-- WAT -->
@@ -761,9 +784,12 @@ user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
                     <li>Copy src/clj/cljs/{compiler,analyzer}.clj to src/cljs/cljs/*.cljs
                     <li>Static snapshot of the analyzer namespaces atom.
                     <li>Move macros out and pull in using :use-macros
+                    <li>Stub out a bunch of stuff
+                    <!-- 
                     <li>Stub out file I/O
                     <li>Make macroexpand-1 a no-op
                     <li>Port clojure.lang.Compiler/munge
+                    -->
                     <li>Rewrite emit-constant multimethods as EmitConstant
                     protoocol (ClojureScript protocol oriented rather than
                     type/class oriented).
@@ -803,7 +829,7 @@ user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
                     <li>node.js launch script (run.js):
                     <ul>
                         <li>load the static namespaces snapshot
-                        <li>setup the analyzer environment
+                        <!-- <li>setup the analyzer environment -->
                         <li>provide a basic REPL using Node.js readline module.
                     </ul>
                     <li><b>RESULT</b>:
@@ -831,13 +857,14 @@ user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
                     and var data for def forms being compiled.
                     <li>Lookup vars during compilation (only
                     macros are resolved to compiler's namespace vars).
-                    <li>Normally discarded after compilation, but we
+                    <li>Normally discarded after compilation, but
                     cljs-in-cljs needs it!
                     <li>Old and busted:
                     <ul>
-                        <li>Write namespaces content to a file
-                        <li>Separate file with entire namespaces data
+                        <li>Write entire namespaces content to a file
+                        <!--
                         <li>Prune problematic namespaces data. E.g. the infamous "/"
+                        -->
                         <!-- NOTES: / is used to delinate namespace
                         part of a symbol so / by itself is a bit of an
                         odd thing -->
@@ -923,6 +950,7 @@ user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
                     of defmacro.
                     <li>Use clj-defmacro to port macros from Clojure core.clj and
                     ClojureScript core.cljs into cljs-in-cljs core.cljs file.
+                    <!--
                     <li>Very little generally has to be done to port the macros,
                     however, there are some minor things:
                     <ul>
@@ -931,6 +959,7 @@ user=> (let [baz (defmacro qux [x] (* 2 x))] (qux 21))
                         resolve the cljs side namespace (yet).
                         <li>Convert Java exceptions to Javascript exceptions.
                     </ul>
+                    -->
                     <li>Port destructure function for use by let, loop, fn
                     macros.
                     <li><b>RESULT</b>:
@@ -1223,7 +1252,8 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                 </div>
 
                 <div class="arrow" id="sh4" data-jmpress="fade">
-                    <img height=40 src="imgs/arrow.png">
+                    <img height=40 src="imgs/arrow.png"><br>
+                    1X
                 </div>
 
 
@@ -1418,6 +1448,13 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
 
             <h2>Finishing Up</h2>
 
+            <h3>Links:</h3>
+            <ul>
+                <li>Project page: <a target="githubA" href="https://github.com/kanaka/clojurescript">github.com/kanaka/clojurescript</a>
+                <li>Live online REPL: <a target="cljs.netA" href="http://clojurescript.net">clojurescript.net</a>
+                <li>Major updates: <a target="twitterA" href="https://twitter.com/#!/bus_kanaka">@bus_kanaka</a>
+                <li>#cljs-in-cljs (freenode)
+            </ul>
         </div>
 
 </div>
