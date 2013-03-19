@@ -62,7 +62,7 @@
 
             <h1>About Me</h1>
 
-            <!-- TODO: somewhere else -->
+            <!-- TODO: re-activate -->
             <!--
             <a href="globe/" onclick="javascript:window.open('globe'); return false;" target="60s-window">Joel Martin in 60 seconds</a>
             -->
@@ -72,8 +72,6 @@
                 
             </div>
             <p data-jmpress="fade">Probably best known for creating <a href="https://github.com/kanaka/noVNC">noVNC</a> and <a href="https://github.com/kanaka/websockify">websockify</a>
-
-            <!-- TODO: At LonoCloud logo -->
 
             <div data-jmpress="fade">
                 <h3>Connect:</h3>
@@ -194,7 +192,6 @@
             <!-- What about Clojure-in-Clojure?
                  NOTES: Good question -->
 
-            <!-- TODO: validate correctness -->
             <ul>
                 <li data-jmpress="fade">The dream of Clojure-in-Clojure is
                 a Clojure implementation that is written entirely in
@@ -522,7 +519,6 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     <ul>
                         <li>load the static namespaces snapshot
                         <li>setup the analyzer environment
-                        <!-- TODO: build this for demo? -->
                     </ul>
                     <li><b>RESULT</b>:
                     <ul>
@@ -866,7 +862,7 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                 <h2>Future Work</h2>
 
                 <ul>
-                    <li>Require/use/CLASSPATH issues
+                    <li>Require/Use/CLASSPATH issues
                     <li>Enhance debug repl
                     <ul>
                         <li>Vision: like firebug but for (and in) ClojureScript
@@ -875,17 +871,23 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     <li>Self-hosting (get all of core.clj to compile)
                     <li>Merging upstream ClojureScript (branched in Nov 2012)
                     <li>Push to upstream ClojureScript
-                    <li>Create and push Node.js package (npm)
-                    <li>Node.js interoperability
+                    <li>Greater use of Node.js
+                    <ul>
+                        <li>npmjs.org is the fastest growing language
+                        module repository
+                        <li>Create and push Node.js package (npm)
+                        <li>Node.js library interop
+                    </ul>
                     <li>Performance work
                     <ul>
-                        <li>V8 profiler
-                        <li>asm.js (not cljs-in-cljs specific)
+                        <li>V8 profiling
+                        <li><a href="http://asmjs.org">asm.js</a> (not cljs-in-cljs specific)
                     </ul>
                     <li>Cool new applications
                     <ul>
                         <li>cljs-in-cljs + catnip + js-git
                         <li>LightTable Light (no backend needed)
+                        <li>All the things I can't think of
                     </ul>
                 </ul>
             </div>
@@ -923,6 +925,7 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     <li>ClojureScript-in-ClojureScript Project: <a target="githubA" href="https://github.com/kanaka/clojurescript">github.com/kanaka/clojurescript</a>
                     <li>ClojureScript: <a target="githubA" href="https://github.com/kanaka/clojurescript">github.com/kanaka/clojurescript</a>
                     <li>Live online REPL: <a target="cljs.netA" href="http://clojurescript.net">ClojureScript.net</a>
+                    <li>From-scratch Clojure implementation on JavaScript: <a target="wisp" href="https://github.com/Gozala/wisp">Wisp</a>
                 </ul>
             </div>
 
@@ -941,8 +944,8 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                 <h2>Thanks:</h2>
                 <ul>
                     <li>Chouser: the initial bootstrap and other help.
-                    <li>Fogus: Himera design used in ClojureScript.net <!-- TODO: link -->
-                    <li>Irakli Gozalishvili: bug fixes <!-- TODO: check spelling -->
+                    <li>Fogus: Himera design used in <a href="http://clojurescript.net">ClojureScript.net</a>
+                    <li>Irakli Gozalishvili: bug fixes
                     <li>Arthur Edelstein: jq-console/editor integration in ClojureScript.net
                     <li>Mike Anderson: surprise-ending example.
                     <li>Game of Life demo: https://github.com/sw1nn
