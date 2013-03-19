@@ -516,9 +516,9 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     <li>Port clojure.lang.Compiler/munge
                     -->
                     <li>Rewrite emit-constant multimethods as EmitConstant
-                    protoocol (ClojureScript protocol oriented rather than
+                    protocol (ClojureScript protocol oriented rather than
                     type/class oriented).
-                    <li>Bootstrap html/javascript file:
+                    <li>Bootstrap HTML/JavaScript file:
                     <ul>
                         <li>load the static namespaces snapshot
                         <li>setup the analyzer environment
@@ -708,7 +708,7 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                 <h2>Step 7. Types, protocols and first-class symbols</h2>
 
                 <ul>
-                    <li>Definiton and extension of protocols uses
+                    <li>Definition and extension of protocols uses
                     metadata on symbols to pass around information.
                     <li>In ClojureScript, symbols are just prefixed
                     strings.
@@ -721,7 +721,7 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     metadata.
                     <li>Port reify, extend-type, deftype, defrecord, and
                     defprotocol macros and supporting functions from
-                    CloureScript core.clj. Port extend-protocol from
+                    ClojureScript core.clj. Port extend-protocol from
                     Clojure core.clj.
                     <li><b>RESULT</b>:
                     <ul>
@@ -783,9 +783,8 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
             <ul>
                 <li>Implement Java-like File object.
                 <li>Implement Java-like I/O readers/streams (maybe).
-                <li>Move push-back-readerfrom reader.cljs to core.cljs
-                <li>Use node.js file read/write. Use XMLHttpRequest for web
-                file read.
+                <li>Use node.js file read/write routines. Use
+                XMLHttpRequest for web file read.
                 <li><b>RESULT</b>:
                 <ul>
                     <li>load-file now works.
@@ -874,8 +873,8 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                         <li>Make it a compile/lein option
                     </ul>
                     <li>Self-hosting (get all of core.clj to compile)
-                    <li>Merging upstream clojurescript (branched in Nov 2012)
-                    <li>Push to upstream clojurescript
+                    <li>Merging upstream ClojureScript (branched in Nov 2012)
+                    <li>Push to upstream ClojureScript
                     <li>Create and push Node.js package (npm)
                     <li>Node.js interoperability
                     <li>Performance work
@@ -923,7 +922,7 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     </ul>
                     <li>ClojureScript-in-ClojureScript Project: <a target="githubA" href="https://github.com/kanaka/clojurescript">github.com/kanaka/clojurescript</a>
                     <li>ClojureScript: <a target="githubA" href="https://github.com/kanaka/clojurescript">github.com/kanaka/clojurescript</a>
-                    <li>Live online REPL: <a target="cljs.netA" href="http://clojurescript.net">clojurescript.net</a>
+                    <li>Live online REPL: <a target="cljs.netA" href="http://clojurescript.net">ClojureScript.net</a>
                 </ul>
             </div>
 
@@ -942,9 +941,9 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                 <h2>Thanks:</h2>
                 <ul>
                     <li>Chouser: the initial bootstrap and other help.
-                    <li>Fogus: Himera design used in clojurescript.net <!-- TODO: link -->
+                    <li>Fogus: Himera design used in ClojureScript.net <!-- TODO: link -->
                     <li>Irakli Gozalishvili: bug fixes <!-- TODO: check spelling -->
-                    <li>Arthur Edelstein: jq-console/editor integration in clojurescript.net
+                    <li>Arthur Edelstein: jq-console/editor integration in ClojureScript.net
                     <li>Mike Anderson: surprise-ending example.
                     <li>Game of Life demo: https://github.com/sw1nn
                     <li>David Nolen for saying "Wait, this isn't right" ... no better encouragement than that.
