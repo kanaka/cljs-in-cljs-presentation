@@ -192,19 +192,19 @@
             <!-- What about Clojure-in-Clojure?
                  NOTES: Good question -->
 
-            <ul>
-                <li data-jmpress="fade">The dream of Clojure-in-Clojure is
-                a Clojure implementation that is written entirely in
-                Clojure except for a very small platform specific
-                core.
+            <ul class="slide-content">
+                <li data-jmpress="fade">The dream of
+                <b>Clojure-in-Clojure</b> is a Clojure implementation
+                that is written entirely in Clojure except for a very
+                small platform specific core.
                 <li data-jmpress="fade">It would allow easy porting to
                 new platforms (among other advantages).
-                <li data-jmpress="fade">ClojureScript itself is a step
-                towards this goal; more of the compiler is implemented in
-                Clojure.
-                <li data-jmpress="fade">ClojureScript-in-ClojureScript is
-                another step towards that goal; more of the compiler is
-                implemented in Clojure/ClojureScript.
+                <li data-jmpress="fade"><b>ClojureScript</b> itself is
+                a step towards this goal; more of the compiler is
+                implemented in Clojure.
+                <li data-jmpress="fade"><b>ClojureScript-in-ClojureScript</b>
+                is another step towards that goal; more of the
+                compiler is implemented in Clojure/ClojureScript.
             </ul>
         </div>
 
@@ -498,11 +498,11 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
             <h2>Step 1. Minimal web REPL</h2>
 
             <div class="slide-content">
-                <p data-jmpress="fade">
+                <p>
                 The beginning: a Clojure/conj hackathon with chouser.
                 </p>
 
-                <ul data-jmpress="fade">
+                <ul>
                     <li>Copy src/clj/cljs/{compiler,analyzer}.clj to src/cljs/cljs/*.cljs
                     <li>Static snapshot of the analyzer namespaces atom.
                     <li>Move macros out and pull in using :use-macros
@@ -591,7 +591,7 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                         odd thing -->
                         <li>Manually add "(set! cljs.analyzer.namespaces DATA)"
                     </ul>
-                    <li>New hotness (<b>RESULT</b>):
+                    <li><b>RESULT</b> (New hotness):
                     <ul>
                         <li>Emit namespaces data to end of each compiled file
                         <li>Just for the namespace being compiled
@@ -826,13 +826,12 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
 
             <h2>Step 11. Self-hosting</h2>
 
-            <p>On going work</p>
-            <p class="slide-content" data-jmpress="fade">Most things
-            compile except for some tricky macro/var/namespace
-            interactions in core.clj/core.cljs</p>
-            <p class="slide-content" data-jmpress="fade">The hack:
-            copy the already compiled core.js file and the rest will
-            compile.</p>
+            <p class="slide-content">On going work</p>
+            <p class="slide-content">Most things compile except for
+            some tricky macro/var/namespace interactions in
+            core.clj/core.cljs</p>
+            <p class="slide-content">The hack: copy the already
+            compiled core.js file and the rest will compile.</p>
         </div>
 
 
@@ -887,7 +886,9 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     <ul>
                         <li>cljs-in-cljs + catnip + js-git
                         <li>LightTable Light (no backend needed)
-                        <li>All the things I can't think of
+                        <li>All the cool things I can't think of, that
+                        all of you will create. <!-- TODO: change for
+                        publishing -->
                     </ul>
                 </ul>
             </div>
@@ -937,7 +938,7 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
             style="padding-top: 5px;">
 
             <div class="cljs-in-cljs-logo">
-                <img height="200" src="imgs/CinC-logo.png">
+                <img height="250" src="imgs/CinC-logo.png">
             </div>
 
             <div data-jmpress="fade" class="slide-content">
@@ -946,7 +947,7 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     <li>Chouser: the initial bootstrap and other help.
                     <li>Fogus: Himera design used in <a href="http://clojurescript.net">ClojureScript.net</a>
                     <li>Irakli Gozalishvili: bug fixes
-                    <li>Arthur Edelstein: jq-console/editor integration in ClojureScript.net
+                    <li>Arthur Edelstein: jq-console/editor for <a href="http://clojurescript.net">ClojureScript.net</a>
                     <li>Mike Anderson: surprise-ending example.
                     <li>Game of Life demo: https://github.com/sw1nn
                     <li>David Nolen for saying "Wait, this isn't right" ... no better encouragement than that.
