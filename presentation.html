@@ -118,15 +118,61 @@
 
             <h2>Why?</h2>
 
-            <p data-jmpress="fade">Best reason I can a give is to show
-            examples of what is possible</p>
+            <p data-jmpress="fade">The best reason I can give is to
+            show examples of what is possible</p>
             
+        </div>
+
+        <!-- Why? Web -->
+        <div id="why-web" class="step slide"
+            data-x="-77750" data-y="-29250" data-scale="2" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Web Examples</h2>
+
             <ul>
-                <!--
-                TODO: switch back to clojurescript.net
                 <li data-jmpress="fade">Online web REPL: <a target="clojurescript-net" href="http://clojurescript.net">ClojureScript.net</a>
-                -->
+                <ul>
+                    <div class="clj-code" data-jmpress="fade">
+                    <code class="brush: clojure; gutter: false;">
+(+ 1 1)
+                    </code>
+                    </div>
+                    <div class="clj-code" data-jmpress="fade">
+                    <code class="brush: clojure; gutter: false;">
+(defn frob [x] (apply + 1 (vals (meta x))))
+(frob (with-meta [1 2 3] {:a 10 :b 20 :c 30}))
+                    </code>
+                    </div>
+                    <div class="clj-code" data-jmpress="fade" id="cnet2">
+                    <code class="brush: clojure; gutter: false;">
+(defmacro lazy-cat [&amp; colls]
+    `(concat ~@(map #(list `lazy-seq %) colls)))
+(defmacro surprise-ending [s f]
+    `(lazy-cat ~s (do ~f nil)))
+(def things (surprise-ending [1 2 3]
+    (println "SURPRISE!"))) nil
+                    </code>
+                    </div>
+                    <ul data-jmpress="fade after 10ms #cnet2">
+                        <li>NOTE: trailing nil is necessary
+                    </ul>
+                    <div class="clj-code" data-jmpress="fade">
+                    <code class="brush: clojure; gutter: false;">
+(take 2 things)
+(take 3 things)
+(take 4 things)
+(take 4 things)
+                    </code>
+                    </div>
+                </ul>
+                <!--
                 <li data-jmpress="fade">Online web REPL: <a target="clojurescript-net" href="http://localhost:7080/web/repl3.html">ClojureScript.net</a>
+                -->
 
                 <!-- NOTES:
                 - Let's try something easy:
@@ -155,21 +201,40 @@
                 -->
                 <li data-jmpress="fade">Debug Web REPL for ClojureScript Projects: <a target="gol-example" href="game-of-life.html">ClojureScript Game of Life</a>
 
-                <li data-jmpress="fade">HTML Script tags with ClojureScript: <a target="scriptany-example" href="scriptany-cljs1.html">Scriptany Example</a>
+                <li data-jmpress="fade">HTML Script tags with ClojureScript: <a target="scriptany-example" href="scriptany-cljs.html">Scriptany</a>. Steps:
+                    <a target="scriptany-ex1" href="scriptany-cljs1.html">1</a>,
+                    <a target="scriptany-ex2" href="scriptany-cljs2.html">2</a>,
+                    <a target="scriptany-ex3" href="scriptany-cljs3.html">3</a>,
+                    <a target="scriptany-ex4" href="scriptany-cljs4.html">4</a>.
+            </ul>
 
+        </div>
+
+        <!-- Why? Node -->
+        <div id="why-node" class="step slide"
+            data-x="-76250" data-y="-30750" data-scale="2" data-rotate="-45"
+            style="padding-top: 5px;">
+
+            <div class="cljs-in-cljs-logo">
+                <img height="100" src="imgs/CinC-logo.png">
+            </div>
+
+            <h2>Node.js Examples</h2>
+
+            <ul>
                 <li data-jmpress="fade">ClojureScript REPL (Node.js)
-                <ul data-jmpress="fade">
+                <ul>
                     <li><code>./run.js repl-out/noderepl.js</code>
                 </ul>
 
                 <li data-jmpress="fade">ClojureScript shebang scripts (Node.js)
-                <ul data-jmpress="fade">
+                <ul>
                     <li><code>time ./shebang.cljs</code>
                     <li><code>time ./shebang.clj</code>
                 </ul>
 
                 <li data-jmpress="fade">ClojureScript-in-ClojureScript compiler (Node.js)
-                <ul data-jmpress="fade">
+                <ul>
                     <li><code>mkdir -p out2/cljs</code>
                     <li><code>cp out/goog.js out2/</code>
                     <li><code>cp out/cljs/core.cljs # Hack alert</code>
@@ -812,6 +877,10 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     <li>Bug fixes: / symbol, keywords, regexes, unicode, etc, etc
                     <li>Tests
                     <li>REPL functionality/cleanup
+                    <li><b>RESULT</b>:
+                    <ul>
+                        <li>Useful enough to hack up cool examples for a Clojure conference.
+                    </ul>
                 </ul>
             </div>
         </div>
