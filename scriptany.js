@@ -1,10 +1,8 @@
 /*
- * ScriptAny:
- *
- * Script any language that can be compiled/evaluated by JavaScript.
- *
+ * ScriptAny: use any language with script tags.
+ * Copyright (C) 2013 Joel Martin
+ * Licensed underl MPL 2.0 (see LICENSE.MPL-2.0)
  */
-
 
 var scriptany = function() {};
 scriptany.handlers = {};

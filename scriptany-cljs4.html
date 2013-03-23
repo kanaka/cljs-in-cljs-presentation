@@ -19,13 +19,14 @@
       (defn foo [x] (* 2 x))
   </script>
 
-  <script type="text/javascript">
-      scriptany.barrier();
-      alert(cljs.user.foo(10));    
-  </script>
-
   <script type="text/clojurescript" src="bar.cljs">
   </script>
+
+  <script type="text/javascript">
+      scriptany.barrier();
+      alert(cljs.user.bar(30));    
+  </script>
+
 </head>
 <body>
 

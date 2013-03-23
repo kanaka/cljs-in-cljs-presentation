@@ -150,8 +150,6 @@
                     </div>
                     <div class="clj-code" data-jmpress="fade" id="cnet2">
                     <code class="brush: clojure; gutter: false;">
-(defmacro lazy-cat [&amp; colls]
-    `(concat ~@(map #(list `lazy-seq %) colls)))
 (defmacro surprise-ending [s f]
     `(lazy-cat ~s (do ~f nil)))
 (def things (surprise-ending [1 2 3]
@@ -223,23 +221,23 @@
 
             <ul>
                 <li data-jmpress="fade">ClojureScript REPL (Node.js)
-                <ul>
+                <ul data-jmpress="fade">
                     <li><code>./run.js repl-out/noderepl.js</code>
                 </ul>
 
                 <li data-jmpress="fade">ClojureScript shebang scripts (Node.js)
-                <ul>
+                <ul data-jmpress="fade">
                     <li><code>time ./shebang.cljs</code>
                     <li><code>time ./shebang.clj</code>
                 </ul>
 
                 <li data-jmpress="fade">ClojureScript-in-ClojureScript compiler (Node.js)
-                <ul>
+                <ul data-jmpress="fade">
                     <li><code>mkdir -p out2/cljs</code>
                     <li><code>cp out/goog.js out2/</code>
                     <li><code>cp out/cljs/core.cljs # Hack alert</code>
                     <li><code>./run.js out/cljsc.js hello.cljs &gt; hello.js</code>
-                    <li><code>./run2.js hello.cljs</code>
+                    <li><code>./run2.js hello.js</code>
                 </ul>
             </ul>
         </div>
@@ -949,7 +947,7 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     <li>Performance work
                     <ul>
                         <li>V8 profiling
-                        <li><a href="http://asmjs.org">asm.js</a> (not cljs-in-cljs specific)
+                        <li>asm.js: <a href="http://asmjs.org">asmjs.org</a> (not cljs-in-cljs specific)
                     </ul>
                     <li>Cool new applications
                     <ul>
@@ -996,7 +994,8 @@ bin/cljsc src/cljs/cljsc.cljs &gt; cljsc.js
                     <li>ClojureScript-in-ClojureScript Project: <a target="githubA" href="https://github.com/kanaka/clojurescript">github.com/kanaka/clojurescript</a>
                     <li>Upstream ClojureScript: <a target="githubA" href="https://github.com/kanaka/clojurescript">github.com/kanaka/clojurescript</a>
                     <li>ClojureScript-in-ClojureScript web REPL: <a target="cljs.netA" href="http://clojurescript.net">ClojureScript.net</a>
-                    <li>From-scratch Clojure implementation on JavaScript: <a target="wisp" href="https://github.com/Gozala/wisp">Wisp</a>
+                    <li>Scriptany: <a target="scriptany" href="https://github.com/kanaka/Scriptany">github.com/kanaka/Scriptany</a>
+                    <li>Wisp - From-scratch Clojure implementation on JavaScript: <a target="wisp" href="https://github.com/Gozala/wisp">github.com/Gozala/wisp</a>
                 </ul>
             </div>
 
