@@ -7,3 +7,6 @@
 [submodule "game-of-life"]
 	path = game-of-life
 	url = https://github.com/sw1nn/ldnclj-dojo-team-5-game-of-life.git
+[submodule "Scriptany"]
+	path = Scriptany
+	url = https://github.com/kanaka/Scriptany.git
